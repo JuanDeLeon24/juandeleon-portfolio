@@ -223,6 +223,12 @@ export const fotosObra: ObraPhoto[] = [
   },
   {
     ...toyo,
+    src: "/media/obras/toyo-equipo-oficina.webp",
+    alt: "Juan Sebastián De León (izquierda) con el equipo de trabajo frente a los taludes anclados del Túnel del Toyo",
+    caption: "Con el equipo de trabajo frente a los taludes estabilizados del Túnel del Toyo (a la izquierda).",
+  },
+  {
+    ...toyo,
     destacada: true,
     src: "/media/obras/toyo-portal.webp",
     alt: "Taludes estabilizados con anclajes y portal del Túnel del Toyo en el occidente antioqueño",
