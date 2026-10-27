@@ -26,7 +26,7 @@ export function About() {
                 <motion.div style={{ y }} className="absolute inset-[-8%]">
                   {about.photo ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={asset(about.photo)} alt="Juan Sebastián De León Rapalino en la oficina técnica" className="h-full w-full object-cover object-[50%_30%]" loading="lazy" />
+                    <img src={asset(about.photo)} alt="Juan Sebastián De León Rapalino" className="h-full w-full object-cover object-[50%_30%]" loading="lazy" />
                   ) : (
                     <SmartImage item={media.crew} />
                   )}
@@ -41,7 +41,7 @@ export function About() {
               <div className="mx-auto mt-5 max-w-[340px] md:mx-0">
                 <p className="display text-2xl font-bold">Juan Sebastián De León Rapalino</p>
                 <p className="mt-1 text-base text-signal">Ingeniero Electrónico</p>
-                <p className="text-[15px] text-ink/70">Auxiliar de Control · Oficina Técnica · Construcciones El Cóndor</p>
+                <p className="text-[15px] text-ink/70">Control y ejecución de obra · Construcciones El Cóndor</p>
               </div>
             </div>
           </div>

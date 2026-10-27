@@ -20,7 +20,8 @@ export const site = {
     "Ingeniero Electrónico",
     "Construcciones El Cóndor",
     "control de producción",
-    "oficina técnica",
+    "control de obra",
+    "ejecución de obra",
     "Túnel del Toyo",
     "Autopista Río Magdalena 2",
     "Lower Mine Marmato",
@@ -69,7 +70,7 @@ export const about = {
     {
       title: "La obra civil",
       body:
-        "En 2024 llegué a Construcciones El Cóndor como Auxiliar de Control en la oficina técnica. Desde entonces recorrí la Autopista Río Magdalena 2, la planta de beneficio de un proyecto minero en Marmato, la rehabilitación de puentes en Risaralda, la rehabilitación de pavimentos flexibles y una planta de mezclas asfálticas en La Pintada, y hoy el Túnel del Toyo.",
+        "En 2024 llegué a Construcciones El Cóndor como Auxiliar de Control, a cargo del control y seguimiento de la ejecución de obra. Desde entonces recorrí la Autopista Río Magdalena 2, la planta de beneficio de un proyecto minero en Marmato, la rehabilitación de puentes en Risaralda, la rehabilitación de pavimentos flexibles y una planta de mezclas asfálticas en La Pintada, y hoy el Túnel del Toyo.",
     },
     {
       title: "El código como herramienta de obra",
@@ -135,7 +136,7 @@ export const timeline: TimelineItem[] = [
     period: "Feb 2024 – Jul 2025",
     title: "Autopista Río Magdalena 2",
     org: "Construcciones El Cóndor S.A.",
-    role: "Auxiliar de Control · Oficina Técnica",
+    role: "Auxiliar de Control · Control y ejecución de obra",
     place: "Vegachí, Antioquia",
     summary: "Llegada a El Cóndor en una concesión vial 4G: control de producción, insumos, equipo pesado y personal; certificación SENA en manejo de explosivos y voladura.",
     highlights: ["Control de producción", "Explosivos y voladura (SENA)", "Digitalización de formatos"],
@@ -144,7 +145,7 @@ export const timeline: TimelineItem[] = [
     period: "Jul 2025 – Mar 2026",
     title: "Cuatro frentes a la vez",
     org: "Construcciones El Cóndor S.A.",
-    role: "Auxiliar de Control · Oficina Técnica",
+    role: "Auxiliar de Control · Control y ejecución de obra",
     place: "Caldas, Risaralda y Antioquia",
     summary: "Coordinación simultánea del movimiento masivo de tierras y montaje de la planta de beneficio en Marmato, el recalce de dovelas en puentes de Irra, la rehabilitación de pavimentos flexibles en Pacífico 2 y la planta de mezclas asfálticas Poblanco.",
     highlights: ["Lower Mine Marmato 2", "Rehabilitación de puentes · Irra", "Pavimentos flexibles · Pacífico 2"],
@@ -153,7 +154,7 @@ export const timeline: TimelineItem[] = [
     period: "Mar 2026 – hoy",
     title: "Túnel del Toyo",
     org: "Construcciones El Cóndor S.A.",
-    role: "Auxiliar de Control · Oficina Técnica",
+    role: "Auxiliar de Control · Control y ejecución de obra",
     place: "Santa Fe de Antioquia",
     summary: "Control del personal de túneles, aprobación de jornadas, imputación a centros de costo y herramientas propias que automatizan el proceso.",
     highlights: ["Aprobador de jornadas", "Control de concretos", "Auditor de equipos"],
@@ -274,7 +275,7 @@ export const hilo = {
 
 export const condor = {
   intro:
-    "Construcciones El Cóndor es una de las constructoras de infraestructura más grandes de Colombia. Desde febrero de 2024 trabajo en su oficina técnica como Auxiliar de Control, coordinando la información entre frentes de trabajo, proveedores y áreas técnicas.",
+    "Construcciones El Cóndor es una de las constructoras de infraestructura más grandes de Colombia. Desde febrero de 2024 trabajo como Auxiliar de Control en el control y la ejecución de obra: seguimiento de frentes de trabajo, producción, recursos y coordinación con proveedores y áreas técnicas.",
   activities: [
     "Control de producción y avance de obra",
     "Coordinación de frentes, proveedores y áreas técnicas",
@@ -290,7 +291,7 @@ export const condor = {
   contributions: [
     {
       title: "Formatos de campo digitales",
-      text: "Concretos, equipo pesado, personal y avance de obra pasaron del papel a aplicaciones web y móviles, con la información disponible al instante para la oficina técnica.",
+      text: "Concretos, equipo pesado, personal y avance de obra pasaron del papel a aplicaciones web y móviles, con la información disponible al instante para el control de la obra.",
     },
     {
       title: "Aprobación de jornadas automatizada",

@@ -174,7 +174,7 @@ export const fotosObra: ObraPhoto[] = [
     destacada: true,
     src: "/media/obras/magdalena2-talud.webp",
     alt: "Talud estabilizado con anclajes activos y placas de concreto junto a la Autopista Río Magdalena 2",
-    caption: "Estabilización de taludes con anclajes activos y placas de concreto: medición de avance, consumos y horas máquina.",
+    caption: "Estabilización de taludes con anclajes activos y placas de concreto a lo largo del corredor vial.",
   },
   {
     ...m2,
@@ -187,7 +187,7 @@ export const fotosObra: ObraPhoto[] = [
     destacada: true,
     src: "/media/obras/marmato2-tanques.webp",
     alt: "Vista aérea de los tanques metálicos y estructuras en construcción del proyecto Lower Mine Marmato 2",
-    caption: "Montaje electromecánico de la planta de beneficio: tanques, estructuras y cimentaciones con conciliación diaria de insumos, equipos y mano de obra.",
+    caption: "Montaje electromecánico de la planta de beneficio: tanques metálicos, estructuras y cimentaciones en ejecución simultánea.",
   },
   {
     ...mm2,
@@ -212,21 +212,21 @@ export const fotosObra: ObraPhoto[] = [
     ...mm2,
     src: "/media/obras/marmato2-cimentacion.webp",
     alt: "Cimentaciones, volquetas y excavadora en la plataforma de Marmato 2",
-    caption: "Cimentaciones y excavación: conciliación diaria de horas máquina, acarreos e insumos.",
+    caption: "Excavación y cimentaciones de la plataforma con equipo de cargue y acarreo.",
   },
   {
     ...toyo,
     destacada: true,
     src: "/media/obras/toyo-equipo.webp",
-    alt: "Personal de oficina técnica en el frente del Túnel del Toyo",
-    caption: "Oficina técnica en frente de obra: captura de información de campo para el control de producción y la cuantificación de actividades.",
+    alt: "Control de obra en el frente de excavación del Túnel del Toyo",
+    caption: "Control de obra en el frente de excavación: seguimiento de la ejecución, registro de avances y cuantificación de actividades.",
   },
   {
     ...toyo,
     destacada: true,
     src: "/media/obras/toyo-equipo-oficina.webp",
-    alt: "Equipo de oficina técnica frente a los taludes estabilizados del Túnel del Toyo",
-    caption: "Equipo de oficina técnica del Túnel del Toyo: control operacional, cuantificación de obra y seguimiento contractual.",
+    alt: "Equipo a cargo del proceso de excavación del Túnel del Toyo frente a los taludes estabilizados",
+    caption: "Equipo a cargo del proceso de excavación del Túnel del Toyo: ejecución, control, estudio y análisis de la obra.",
   },
   {
     ...toyo,
@@ -245,7 +245,7 @@ export const fotosObra: ObraPhoto[] = [
     ...toyo,
     src: "/media/obras/toyo-anclajes.webp",
     alt: "Trabajadores instalando anclajes con equipo hidráulico en un talud del Túnel del Toyo",
-    caption: "Perforación e instalación de anclajes activos: registro y conciliación de horas equipo.",
+    caption: "Perforación e instalación de anclajes activos para la estabilización de taludes.",
   },
   {
     ...toyo,

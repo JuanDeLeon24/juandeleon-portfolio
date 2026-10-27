@@ -9,7 +9,7 @@ import { SectionHeading } from "../ui/SectionHeading";
 
 const chapters = [
   { title: "El frente", place: "Frente de excavación", text: "Personal, turnos y equipo pesado: el punto de origen de los datos de producción." },
-  { title: "El plano", place: "Oficina técnica", text: "Secciones, abscisas y cantidades de obra: la base técnica del control." },
+  { title: "El plano", place: "Control de obra", text: "Secciones, abscisas y cantidades de obra: la base técnica del control." },
   { title: "La obra", place: "Estructura en ejecución", text: "Concreto, acero de refuerzo y control de calidad con registros trazables." },
   { title: "El corredor", place: "Antioquia, Colombia", text: "Túneles y concesiones viales 4G que acortan distancias entre regiones y el mar." },
   { title: "La tecnología", place: "Ingeniería electrónica", text: "Software, análisis de datos e inteligencia artificial aplicados al control de obra." },
