@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ground: #05070a;
+  --color-surface: #0b1016;
+  --color-surface-2: #121a23;
+  --color-surface-3: #1a2430;
+  --color-ink: #eef2f5;
+  --color-muted: #a3b0bd;
+  --color-hivis: #ff6b1a;
+  --color-signal: #39d5ff;
+  --color-navy: #0b2c5a;
+
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  color-scheme: dark;
+  --gutter: clamp(16px, 4vw, 48px);
+}
+
+html {
+  background: var(--color-ground);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  /* sin fondo propio: el lienzo de circuitos (z-index negativo) se ve a través */
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-hivis);
+  color: #000;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.display {
+  font-family: var(--font-display);
+  font-stretch: 112%;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Glassmorphism: superficies flotantes sobre la escena */
+.glass {
+  background: rgba(14, 20, 28, 0.55);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* Neomorfismo sutil para tarjetas sobre fondo oscuro */
+.neo {
+  background: var(--color-surface);
+  box-shadow:
+    -8px -8px 24px rgba(255, 255, 255, 0.015),
+    10px 14px 32px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>");
+}
+
+/* Las animaciones de entrada solo ocultan contenido cuando JS está activo */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
