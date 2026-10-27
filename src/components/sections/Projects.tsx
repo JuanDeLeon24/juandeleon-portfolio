@@ -17,7 +17,7 @@ export function Projects() {
           id="proyectos-t"
           chainage="K5+200 · Proyectos"
           title="Herramientas hechas para la obra"
-          lead="Cada una nació de un problema real en túnel. Todas están en GitHub. Toca una tarjeta para ver el detalle."
+          lead="Herramientas desarrolladas a partir de necesidades reales de control en obra. Código disponible en GitHub; seleccione una tarjeta para ver el detalle."
         />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-6">
           {projects.map((p, i) => (

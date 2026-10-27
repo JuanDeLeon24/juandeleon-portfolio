@@ -37,7 +37,7 @@ export function AI() {
         <SectionHeading id="ia-t" chainage="K7+300 · Inteligencia artificial" title="IA aplicada, con criterio de obra" lead={ai.intro} />
 
         <div data-reveal className="glass overflow-hidden rounded-[36px] p-5 md:p-10">
-          <p className="mb-4 text-base text-ink/80">Toca un nodo para ver qué pasa en cada etapa del flujo.</p>
+          <p className="mb-4 text-base text-ink/80">Seleccione un nodo para ver el detalle de cada etapa del flujo.</p>
           <div className="overflow-x-auto" data-lenis-prevent-touch>
             <svg viewBox="0 0 1000 420" className="min-w-[640px]" role="group" aria-label="Diagrama de flujo de un agente de IA">
               {links.map(([a, b], i) => {

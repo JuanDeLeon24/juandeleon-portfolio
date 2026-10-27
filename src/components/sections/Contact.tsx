@@ -26,10 +26,10 @@ export function Contact() {
       <div className="wrap grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-6">
           <h2 id="contacto-t" data-reveal className="display text-[clamp(3rem,8vw,8rem)] font-extrabold">
-            Hablemos
+            Contacto
           </h2>
           <p data-reveal className="mt-6 max-w-[44ch] text-xl leading-relaxed text-ink/90">
-            ¿Un proceso que se puede automatizar, una obra que necesita mejores datos o un equipo que quiere usar IA en serio? Escríbeme.
+            Disponible para proyectos de control de obra, automatización de procesos, análisis de datos e implementación de inteligencia artificial en infraestructura.
           </p>
           <ul className="mt-12 space-y-3">
             {channels.map((c) => (

@@ -21,10 +21,10 @@ export function Condor() {
       <Reveal className="wrap mt-24 md:mt-32">
         <div className="mb-10 grid gap-6 md:grid-cols-12">
           <h3 data-reveal className="display text-[clamp(2rem,4.4vw,4rem)] font-extrabold md:col-span-7">
-            Seis obras, un mismo método
+            Proyectos de infraestructura
           </h3>
           <p data-reveal className="text-lg leading-relaxed text-ink/85 md:col-span-5 md:pt-3">
-            Infraestructura vial, una planta de beneficio minera, puentes, pavimentos flexibles, una planta de mezclas asfálticas y un túnel. Toca cada punto del mapa para ver qué hice en cada obra.
+            Infraestructura vial, una planta de beneficio minera, puentes, pavimentos flexibles, una planta de mezclas asfálticas y un túnel. Seleccione cada punto del mapa para ver los aportes en cada proyecto.
           </p>
         </div>
         <div data-reveal>

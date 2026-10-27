@@ -67,7 +67,7 @@ export function Timeline() {
           id="trayectoria-t"
           chainage="K2+100 · Trayectoria"
           title="Una carrera construida por tramos"
-          lead="Del SENA a la ingeniería, del campo en La Guajira a seis obras con El Cóndor. Desplázate para avanzar por el túnel."
+          lead="Formación técnica y profesional, supervisión de operaciones y seis proyectos de infraestructura con Construcciones El Cóndor."
         />
       </Reveal>
 

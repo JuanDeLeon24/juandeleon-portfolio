@@ -74,13 +74,13 @@ export const about = {
     {
       title: "El código como herramienta de obra",
       body:
-        "Identifico los cuellos de botella del control de obra y los resuelvo con herramientas propias: aplicaciones, automatizaciones y análisis de datos que eliminan reprocesos, reducen errores de digitación y entregan información confiable y al día.",
+        "Identifico los cuellos de botella del control de obra y los resuelvo con herramientas propias: aplicaciones, automatizaciones y análisis de datos que eliminan reprocesos, reducen errores de digitación y entregan información confiable y oportuna.",
     },
   ],
   difference: [
-    "Hablo el idioma del frente de obra y el del software.",
-    "Automatizo sin perder el control: la persona revisa, la herramienta ejecuta.",
-    "Aprendo rápido y llevo lo que aprendo a producción, no a una presentación.",
+    "Integro el conocimiento técnico de campo con el desarrollo de software.",
+    "Automatizo con control: cada proceso incluye validación humana y trazabilidad.",
+    "Implemento soluciones que llegan a operación real en los proyectos.",
   ],
 };
 
@@ -184,7 +184,7 @@ export const obras: Obra[] = [
     period: "Feb 2024 – Jul 2025",
     lat: 6.77,
     lon: -74.8,
-    text: "El proyecto donde empecé a consolidar de forma visible mi enfoque de digitalización aplicada a la infraestructura.",
+    text: "Concesión vial de cuarta generación donde consolidé el enfoque de digitalización aplicada al control de producción en infraestructura.",
     facts: ["Control de producción", "Horómetros de equipo pesado", "Explosivos y voladura"],
     aportes: ["Organización y estructuración de bases de datos de obra.", "Optimización de formatos operativos.", "Mecanismos de seguimiento de actividades.", "Estandarización de procesos de control."],
     innovacion: ["Excel avanzado.", "Automatizaciones.", "Tableros de control.", "Gestión digital de datos.", "Modelos de seguimiento de rendimiento."],
@@ -249,7 +249,7 @@ export const obras: Obra[] = [
     period: "Mar 2026 – hoy",
     lat: 6.56,
     lon: -75.83,
-    text: "Uno de los proyectos de infraestructura más importantes del país. Aquí fortalezco el control operacional con una visión de transformación digital.",
+    text: "Uno de los proyectos de infraestructura más importantes del país. Fortalecimiento del control operacional con una visión de transformación digital.",
     facts: ["Turnos de 9,5 y 10,5 h", "Control de concretos", "Jornadas automatizadas"],
     aportes: ["Sistemas de control para actividades subterráneas.", "Información técnica de galerías, módulos y frentes organizada.", "Metodologías para registrar avances de forma sistemática y auditable.", "Herramientas para cuantificar actividades ejecutadas con precisión.", "Modelos digitales para el seguimiento de producción.", "Dispositivos móviles como medio de captura en campo."],
     innovacion: ["Aplicaciones móviles para gestión de actividades.", "Generación automática de informes.", "Sistemas de cuantificación de obra.", "Dashboards de avance.", "Integración entre Excel y software a la medida."],
@@ -503,7 +503,7 @@ export const skills = [
 
 export const ai = {
   intro:
-    "La IA no reemplaza el criterio de obra: lo multiplica. La uso para leer, cruzar y redactar más rápido, y la conecto con las herramientas donde vive el trabajo.",
+    "La inteligencia artificial complementa el criterio técnico: acelera el análisis, el cruce de información y la elaboración de documentos, integrada con las herramientas de gestión del proyecto.",
   uses: [
     { title: "Día a día", text: "Redacción de comunicaciones, resúmenes de información y revisión de documentos técnicos." },
     { title: "Automatización con IA", text: "Agentes que operan el navegador, leen Excel y aplican reglas de negocio paso a paso." },
