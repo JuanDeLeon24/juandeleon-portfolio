@@ -1,7 +1,7 @@
 "use client";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { condor, jornadasCase } from "@/content/profile";
+import { condor, hilo, jornadasCase } from "@/content/profile";
 import { Reveal } from "../ui/Reveal";
 import { SectionHeading } from "../ui/SectionHeading";
 import { Counter } from "../ui/Counter";
@@ -29,6 +29,38 @@ export function Condor() {
         </div>
         <div data-reveal>
           <ObrasMap />
+        </div>
+      </Reveal>
+
+      {/* El hilo conductor */}
+      <Reveal className="wrap mt-16 md:mt-24">
+        <div className="relative overflow-hidden rounded-[36px] bg-navy p-8 md:p-14">
+          <svg className="pointer-events-none absolute -right-10 -top-10 h-72 w-72 opacity-30" viewBox="0 0 200 200" aria-hidden="true">
+            <path d="M0 40 H80 L110 70 V200 M30 0 V30 L60 60 H200 M140 0 V90 L170 120 H200" fill="none" stroke="#39d5ff" strokeWidth="2" />
+            {[[80, 40], [110, 70], [60, 60], [140, 90], [170, 120]].map(([x, y]) => (
+              <circle key={`${x}-${y}`} cx={x} cy={y} r="4" fill="#05070a" stroke="#ff6b1a" strokeWidth="2" />
+            ))}
+          </svg>
+          <p data-reveal className="text-sm font-semibold text-hivis">
+            El hilo conductor de todas las obras
+          </p>
+          <blockquote data-reveal className="relative mt-5 max-w-[40ch] text-[clamp(1.4rem,2.4vw,2.1rem)] font-semibold leading-snug">
+            {hilo.statement}
+          </blockquote>
+          <ul className="relative mt-10 flex flex-wrap gap-3">
+            {hilo.puntos.map((p, i) => (
+              <motion.li
+                key={p}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06, duration: 0.6 }}
+                className="rounded-full bg-black/30 px-5 py-2.5 text-base"
+              >
+                {p}
+              </motion.li>
+            ))}
+          </ul>
         </div>
       </Reveal>
 

@@ -135,24 +135,42 @@ export const media: Record<string, MediaItem> = {
  * con el nombre exacto de la obra (igual que en `obras` de profile.ts):
  * aparecerán en el mapa del recorrido y en la galería de obras.
  */
-export type ObraPhoto = MediaItem & { obra: string };
+/** `destacada`: también aparece a pantalla completa en la galería de obras. */
+export type ObraPhoto = MediaItem & { obra: string; destacada?: boolean };
 
 const m2 = {
   obra: "Autopista Río Magdalena 2",
-  credit: "Archivo del proyecto Autopista Río Magdalena 2",
+  credit: "Archivo fotográfico de Construcciones El Cóndor",
   license: "Derechos reservados de sus autores",
-  sourceUrl: "https://www.ani.gov.co",
+  sourceUrl: "https://elcondor.com",
+};
+
+const condor = {
+  credit: "Archivo fotográfico de Construcciones El Cóndor",
+  license: "Derechos reservados de sus autores",
+  sourceUrl: "https://elcondor.com",
+};
+
+const toyo = { ...condor, obra: "Túnel del Toyo" };
+
+const mm2 = {
+  obra: "Lower Mine Marmato 2",
+  credit: "Archivo fotográfico de Construcciones El Cóndor",
+  license: "Derechos reservados de sus autores",
+  sourceUrl: "https://elcondor.com",
 };
 
 export const fotosObra: ObraPhoto[] = [
   {
     ...m2,
+    destacada: true,
     src: "/media/obras/magdalena2-glorieta.webp",
     alt: "Vista aérea de una glorieta de la Autopista Río Magdalena 2 entre montañas de Antioquia",
     caption: "La vía 4G que conecta el Magdalena Medio con el norte del país. Aquí empezó mi camino en El Cóndor: control de producción, insumos, maquinaria y personal.",
   },
   {
     ...m2,
+    destacada: true,
     src: "/media/obras/magdalena2-talud.webp",
     alt: "Talud estabilizado con anclajes y placas de concreto junto a la Autopista Río Magdalena 2",
     caption: "Taludes estabilizados con anclajes: cada placa es un dato de avance, insumo y horas máquina que hay que medir y reportar.",
@@ -162,6 +180,70 @@ export const fotosObra: ObraPhoto[] = [
     src: "/media/obras/magdalena2-camara.webp",
     alt: "Cámara de monitoreo instalada en la Autopista Río Magdalena 2",
     caption: "La tecnología también es parte de la vía: sistemas de monitoreo que convierten la operación en información.",
+  },
+  {
+    ...mm2,
+    destacada: true,
+    src: "/media/obras/marmato2-tanques.webp",
+    alt: "Vista aérea de los tanques metálicos y estructuras en construcción del proyecto Lower Mine Marmato 2",
+    caption: "Tanques, estructuras y cimentaciones avanzando al mismo tiempo: un frente donde cada día se concilian insumos, equipos y mano de obra.",
+  },
+  {
+    ...mm2,
+    destacada: true,
+    src: "/media/obras/marmato2-portales.webp",
+    alt: "Portales de los túneles de acceso a la mina en Marmato, Caldas",
+    caption: "Los portales de acceso a la mina subterránea: obra civil al servicio de la minería en el distrito de Marmato.",
+  },
+  {
+    ...mm2,
+    src: "/media/obras/marmato2-estructuras.webp",
+    alt: "Estructuras de concreto con andamios y formaletas en Lower Mine Marmato 2",
+    caption: "Formaletas, acero y concreto: avance de estructuras medido y reportado a diario.",
+  },
+  {
+    ...mm2,
+    src: "/media/obras/marmato2-muros.webp",
+    alt: "Muros de contención y explanación frente a los portales de Marmato 2",
+    caption: "Muros de contención y explanación frente a los portales.",
+  },
+  {
+    ...mm2,
+    src: "/media/obras/marmato2-cimentacion.webp",
+    alt: "Cimentaciones, volquetas y excavadora en la plataforma de Marmato 2",
+    caption: "Cimentaciones, volquetas y excavación: horas máquina e insumos que se concilian cada día.",
+  },
+  {
+    ...toyo,
+    destacada: true,
+    src: "/media/obras/toyo-equipo.webp",
+    alt: "Juan Sebastián De León (derecha) con un compañero revisando una libreta en el frente del Túnel del Toyo",
+    caption: "En el frente del Túnel del Toyo, a la derecha con la libreta. La información que se toma en campo es la que alimenta cada herramienta que construyo.",
+  },
+  {
+    ...toyo,
+    destacada: true,
+    src: "/media/obras/toyo-portal.webp",
+    alt: "Taludes anclados y portal del Túnel del Toyo entre montañas del occidente antioqueño",
+    caption: "Taludes anclados y el portal del túnel: la puerta del eje vial que conecta Medellín con Urabá y el mar.",
+  },
+  {
+    ...toyo,
+    src: "/media/obras/toyo-perforadora.webp",
+    alt: "Perforadora de pilotes junto a las canastas de acero frente al portal del Túnel del Toyo",
+    caption: "Perforadora de pilotes y canastas de acero frente al portal.",
+  },
+  {
+    ...toyo,
+    src: "/media/obras/toyo-anclajes.webp",
+    alt: "Trabajadores instalando anclajes con equipo hidráulico en un talud del Túnel del Toyo",
+    caption: "Instalación de anclajes: equipos y horas que se registran y concilian.",
+  },
+  {
+    ...toyo,
+    src: "/media/obras/toyo-taludes.webp",
+    alt: "Vía de acceso entre taludes anclados hacia el portal del Túnel del Toyo",
+    caption: "La vía de acceso entre taludes anclados hacia el portal.",
   },
 ];
 

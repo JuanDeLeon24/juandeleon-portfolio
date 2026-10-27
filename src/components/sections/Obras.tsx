@@ -15,6 +15,8 @@ const chapters = [
   { title: "La tecnología", place: "Ingeniería electrónica", text: "Código, datos e inteligencia artificial puestos al servicio del frente de obra." },
 ];
 
+const destacadas = fotosObra.filter((f) => f.destacada);
+
 /** Reportaje a pantalla completa: cada imagen se fija y la siguiente la cubre. */
 export function Obras() {
   return (
@@ -22,7 +24,7 @@ export function Obras() {
       <Reveal className="wrap pb-16 pt-32 md:pt-48">
         <SectionHeading id="obras-t" chainage="K8+200 · Obras y experiencias" title="Obras y experiencias" lead="Un recorrido visual por las obras donde he trabajado y el mundo que las rodea. Cada foto lleva su crédito." />
       </Reveal>
-      {fotosObra.map((f, i) => {
+      {destacadas.map((f, i) => {
         const o = obras.find((x) => x.name === f.obra);
         return (
           <Chapter
@@ -33,10 +35,10 @@ export function Obras() {
           />
         );
       })}
-      {fotosObra.length < 6 &&
+      {destacadas.length < 6 &&
         obrasGallery
-          .slice(0, 6 - fotosObra.length)
-          .map((key, i) => <Chapter key={key} index={fotosObra.length + i} item={media[key]} chapter={chapters[i]} />)}
+          .slice(0, 6 - destacadas.length)
+          .map((key, i) => <Chapter key={key} index={destacadas.length + i} item={media[key]} chapter={chapters[i]} />)}
     </section>
   );
 }

@@ -170,6 +170,9 @@ export type Obra = {
   lon: number;
   text: string;
   facts: string[];
+  aportes: string[];
+  innovacion: string[];
+  valor: string;
 };
 
 /** Obras en orden cronológico, según la hoja de vida. */
@@ -181,8 +184,11 @@ export const obras: Obra[] = [
     period: "Feb 2024 – Jul 2025",
     lat: 6.77,
     lon: -74.8,
-    text: "Mi primer proyecto con El Cóndor. Control de producción y avance, insumos, maquinaria y personal en una autopista de cuarta generación.",
+    text: "El proyecto donde empecé a consolidar de forma visible mi enfoque de digitalización aplicada a la infraestructura.",
     facts: ["Control de producción", "Horómetros de maquinaria", "Explosivos y voladura"],
+    aportes: ["Organización y estructuración de bases de datos de obra.", "Optimización de formatos operativos.", "Mecanismos de seguimiento de actividades.", "Estandarización de procesos de control."],
+    innovacion: ["Excel avanzado.", "Automatizaciones.", "Tableros de control.", "Gestión digital de datos.", "Modelos de seguimiento de rendimiento."],
+    valor: "Ayudé a sentar las bases de una gestión más moderna de la información y a demostrar que la tecnología es un aliado para la eficiencia en proyectos de infraestructura.",
   },
   {
     name: "Lower Mine Marmato 2",
@@ -191,8 +197,11 @@ export const obras: Obra[] = [
     period: "Jul 2025 – Mar 2026",
     lat: 5.47,
     lon: -75.6,
-    text: "Obras para minería en el distrito de Marmato: seguimiento de actividades e insumos y conciliación de equipos en un entorno subterráneo.",
+    text: "Un entorno minero de alta complejidad operativa, donde impulsé la digitalización de la información productiva.",
     facts: ["Minería", "Seguimiento diario", "Control de insumos"],
+    aportes: ["Estandarización de registros de campo.", "Seguimiento detallado de actividades ejecutadas.", "Controles para garantizar la consistencia de los datos.", "Organización de información operacional para análisis.", "Estructuras para el control de rendimientos."],
+    innovacion: ["Automatización de cálculos.", "Indicadores operativos.", "Consolidación de información de distintas fuentes.", "Menos tiempo en procesos manuales."],
+    valor: "Convertí grandes volúmenes de datos operativos en información clara y procesable, para entender la evolución de los trabajos y elaborar informes técnicos.",
   },
   {
     name: "Dovelas en puentes · Irra",
@@ -201,8 +210,11 @@ export const obras: Obra[] = [
     period: "Jul 2025 – Mar 2026",
     lat: 5.27,
     lon: -75.66,
-    text: "Reparación y recalces de dovelas en puentes: control de cantidades, mano de obra y equipos por frente.",
+    text: "Reparación y recalces de dovelas en puentes: una intervención estructural que exige control y documentación rigurosa.",
     facts: ["Estructuras", "Cantidades de obra", "Centros de costo"],
+    aportes: ["Seguimiento técnico de actividades especializadas.", "Organización documental de procesos constructivos.", "Control de avances ejecutados.", "Gestión estructurada de soportes y evidencias."],
+    innovacion: ["Control fotográfico organizado.", "Consolidación automática de reportes.", "Seguimiento de cantidades ejecutadas.", "Trazabilidad de intervenciones."],
+    valor: "Mejoré la capacidad de documentar técnicamente cada actividad, con más transparencia e información disponible para supervisión y control.",
   },
   {
     name: "Reparcheo Pacífico 2",
@@ -211,8 +223,11 @@ export const obras: Obra[] = [
     period: "Jul 2025 – Mar 2026",
     lat: 5.75,
     lon: -75.6,
-    text: "Mantenimiento y reparcheo de la vía Pacífico 2: rendimientos, insumos y avance diario consolidados para la dirección.",
+    text: "Mantenimiento vial: optimicé el seguimiento de actividades y el control de producción.",
     facts: ["Pavimentos", "Rendimientos", "Reportes diarios"],
+    aportes: ["Sistematización de información de obra.", "Mejor control de rendimientos diarios.", "Consolidación de datos de producción.", "Estandarización de formatos de reporte."],
+    innovacion: ["Herramientas automatizadas de consolidación.", "Bases de datos operativas.", "Hojas de cálculo avanzadas para análisis y control."],
+    valor: "Menos esfuerzo administrativo y reportes más rápidos, confiables y comparables.",
   },
   {
     name: "Planta de asfalto Poblanco",
@@ -221,8 +236,11 @@ export const obras: Obra[] = [
     period: "Jul 2025 – Mar 2026",
     lat: 5.72,
     lon: -75.64,
-    text: "Control de producción de una planta de asfalto: producción, horas máquina y despachos en tableros de Excel y Power BI.",
+    text: "En la planta trabajé con una visión de control integral de la producción y de la información.",
     facts: ["Producción", "Horas máquina", "Power BI"],
+    aportes: ["Organización de registros productivos.", "Seguimiento de indicadores operacionales.", "Consolidación de información de planta.", "Mecanismos de control para la toma de decisiones."],
+    innovacion: ["Automatización de reportes.", "Herramientas digitales de análisis.", "Sistemas de consolidación de datos."],
+    valor: "La información operativa se analiza con más rapidez y precisión, y el monitoreo de la producción es más sólido.",
   },
   {
     name: "Túnel del Toyo",
@@ -231,10 +249,28 @@ export const obras: Obra[] = [
     period: "Mar 2026 – hoy",
     lat: 6.56,
     lon: -75.83,
-    text: "Parte del eje vial que conecta Medellín con Urabá y el mar. Control del personal de túneles por turnos, concretos de revestimiento y maquinaria.",
+    text: "Uno de los proyectos de infraestructura más importantes del país. Aquí fortalezco el control operacional con una visión de transformación digital.",
     facts: ["Turnos de 9,5 y 10,5 h", "Control de concretos", "Jornadas automatizadas"],
+    aportes: ["Sistemas de control para actividades subterráneas.", "Información técnica de galerías, módulos y frentes organizada.", "Metodologías para registrar avances de forma sistemática y auditable.", "Herramientas para cuantificar actividades ejecutadas con precisión.", "Modelos digitales para el seguimiento de producción.", "Dispositivos móviles como medio de captura en campo."],
+    innovacion: ["Aplicaciones móviles para gestión de actividades.", "Generación automática de informes.", "Sistemas de cuantificación de obra.", "Dashboards de avance.", "Integración entre Excel y software a la medida."],
+    valor: "La información dejó de estar dispersa en múltiples archivos y formatos: ahora es un sistema estructurado para decidir, reportar, hacer seguimiento contractual, controlar la productividad y consultar el histórico.",
   },
 ];
+
+/** El hilo conductor de todas las obras. */
+export const hilo = {
+  statement:
+    "He actuado como un puente entre la ingeniería de campo y la transformación digital: llevo herramientas tecnológicas y metodologías basadas en datos a entornos dominados por procesos manuales.",
+  puntos: [
+    "Convertir datos en información útil.",
+    "Automatizar procesos repetitivos.",
+    "Mejorar la calidad de los registros.",
+    "Reducir tiempos administrativos.",
+    "Incrementar la trazabilidad de las actividades.",
+    "Facilitar la toma de decisiones.",
+    "Impulsar la innovación en infraestructura, minería y transporte.",
+  ],
+};
 
 export const condor = {
   intro:

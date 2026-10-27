@@ -27,6 +27,8 @@
     "@types/three": "^0.186.0",
     "postcss": "^8.5.32",
     "tailwindcss": "^4.3.3",
-    "typescript": "^5.9.3"
+    "topojson-client": "^3.1.0",
+    "typescript": "^5.9.3",
+    "world-atlas": "^2.0.2"
   }
 }
