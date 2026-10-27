@@ -44,7 +44,6 @@ Todo se edita en `src/content/profile.ts`. Los campos marcados con `EDITAR` espe
 | Fotos reales de obra | Cópialas a `public/media/` y cambia el `src` en `media.ts` (crédito: "Archivo personal") |
 | Certificados | PDF en `public/media/certificados/` y el campo `file` en `certifications` |
 | Fotos de obra | Cópialas a `public/media/obras/` y regístralas en `fotosObra` (`media.ts`) con el nombre de la obra: salen en el mapa y en la galería |
-| Comentarios de jefes | Activa Firebase siguiendo [FIREBASE.md](FIREBASE.md) (4 espacios, se guardan solos) |
 | LinkedIn | Cambia `contact.linkedin` por la URL de tu perfil |
 
 ## Imágenes y derechos

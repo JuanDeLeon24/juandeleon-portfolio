@@ -27,7 +27,7 @@ const unsplash = (id: string, w = 1600) =>
 export const media: Record<string, MediaItem> = {
   site: {
     src: unsplash("1541888946425-d81bb19240f5"),
-    alt: "Obra civil en construcción con estructura y maquinaria",
+    alt: "Obra civil en construcción con estructuras y equipo pesado",
     credit: "Unsplash",
     license: "Licencia Unsplash",
     sourceUrl: "https://unsplash.com/license",
@@ -51,11 +51,11 @@ export const media: Record<string, MediaItem> = {
   },
   road: {
     src: unsplash("1469854523086-cc02fe5d8800"),
-    alt: "Carretera que atraviesa un paisaje montañoso",
+    alt: "Corredor vial que atraviesa un paisaje montañoso",
     credit: "Unsplash",
     license: "Licencia Unsplash",
     sourceUrl: "https://unsplash.com/license",
-    caption: "Vías que conectan regiones: la razón de cada túnel y cada puente.",
+    caption: "Infraestructura vial que conecta regiones: la razón de cada túnel y cada puente.",
   },
   engineer: {
     src: unsplash("1581092160562-40aa08e78837"),
@@ -152,6 +152,7 @@ const condor = {
 };
 
 const toyo = { ...condor, obra: "Túnel del Toyo" };
+const pacifico = { ...condor, obra: "Rehabilitación de pavimentos · Pacífico 2", credit: "Registro de obra · Construcciones El Cóndor" };
 
 const mm2 = {
   obra: "Lower Mine Marmato 2",
@@ -166,34 +167,34 @@ export const fotosObra: ObraPhoto[] = [
     destacada: true,
     src: "/media/obras/magdalena2-glorieta.webp",
     alt: "Vista aérea de una glorieta de la Autopista Río Magdalena 2 entre montañas de Antioquia",
-    caption: "La vía 4G que conecta el Magdalena Medio con el norte del país. Aquí empezó mi camino en El Cóndor: control de producción, insumos, maquinaria y personal.",
+    caption: "La concesión vial 4G que conecta el Magdalena Medio con el norte del país. Aquí empezó mi camino en El Cóndor: control de producción, insumos, equipo pesado y personal.",
   },
   {
     ...m2,
     destacada: true,
     src: "/media/obras/magdalena2-talud.webp",
-    alt: "Talud estabilizado con anclajes y placas de concreto junto a la Autopista Río Magdalena 2",
-    caption: "Taludes estabilizados con anclajes: cada placa es un dato de avance, insumo y horas máquina que hay que medir y reportar.",
+    alt: "Talud estabilizado con anclajes activos y placas de concreto junto a la Autopista Río Magdalena 2",
+    caption: "Estabilización de taludes con anclajes activos: cada placa es un dato de avance, insumo y horas máquina que hay que medir y reportar.",
   },
   {
     ...m2,
     src: "/media/obras/magdalena2-camara.webp",
     alt: "Cámara de monitoreo instalada en la Autopista Río Magdalena 2",
-    caption: "La tecnología también es parte de la vía: sistemas de monitoreo que convierten la operación en información.",
+    caption: "La tecnología también es parte de la infraestructura vial: sistemas ITS de monitoreo que convierten la operación en información.",
   },
   {
     ...mm2,
     destacada: true,
     src: "/media/obras/marmato2-tanques.webp",
     alt: "Vista aérea de los tanques metálicos y estructuras en construcción del proyecto Lower Mine Marmato 2",
-    caption: "Montaje de la planta de procesamiento: tanques, estructuras y cimentaciones avanzando al mismo tiempo, con insumos, equipos y mano de obra conciliados a diario.",
+    caption: "Montaje de la planta de beneficio: tanques, estructuras y cimentaciones avanzando al mismo tiempo, con insumos, equipos y mano de obra conciliados a diario.",
   },
   {
     ...mm2,
     destacada: true,
     src: "/media/obras/marmato2-portales.webp",
-    alt: "Plataforma de la planta de procesamiento frente a la ladera estabilizada en Marmato, Caldas",
-    caption: "Explanación y muros de la plataforma donde se monta la planta de procesamiento: movimiento masivo de tierra al pie de la ladera estabilizada.",
+    alt: "Plataforma de la planta de beneficio frente a la ladera estabilizada en Marmato, Caldas",
+    caption: "Explanación y muros de contención de la plataforma de la planta de beneficio: movimiento masivo de tierras al pie de la ladera estabilizada.",
   },
   {
     ...mm2,
@@ -224,8 +225,8 @@ export const fotosObra: ObraPhoto[] = [
     ...toyo,
     destacada: true,
     src: "/media/obras/toyo-portal.webp",
-    alt: "Taludes anclados y portal del Túnel del Toyo entre montañas del occidente antioqueño",
-    caption: "Taludes anclados y el portal del túnel: la puerta del eje vial que conecta Medellín con Urabá y el mar.",
+    alt: "Taludes estabilizados con anclajes y portal del Túnel del Toyo en el occidente antioqueño",
+    caption: "Taludes estabilizados con anclajes y el portal del túnel: la puerta del corredor vial que conecta Medellín con Urabá y el mar.",
   },
   {
     ...toyo,
@@ -237,13 +238,57 @@ export const fotosObra: ObraPhoto[] = [
     ...toyo,
     src: "/media/obras/toyo-anclajes.webp",
     alt: "Trabajadores instalando anclajes con equipo hidráulico en un talud del Túnel del Toyo",
-    caption: "Instalación de anclajes: equipos y horas que se registran y concilian.",
+    caption: "Perforación e instalación de anclajes: equipos y horas que se registran y concilian.",
   },
   {
     ...toyo,
     src: "/media/obras/toyo-taludes.webp",
-    alt: "Vía de acceso entre taludes anclados hacia el portal del Túnel del Toyo",
-    caption: "La vía de acceso entre taludes anclados hacia el portal.",
+    alt: "Vía de acceso entre taludes estabilizados con anclajes hacia el portal del Túnel del Toyo",
+    caption: "Vía de acceso entre taludes estabilizados con anclajes activos hacia el portal.",
+  },
+  {
+    ...pacifico,
+    destacada: true,
+    src: "/media/obras/pacifico2-fresado.webp",
+    alt: "Fresadora retirando la carpeta asfáltica deteriorada en el corredor Pacífico 2",
+    caption: "Fresado de la carpeta asfáltica deteriorada: el primer paso de la rehabilitación del pavimento flexible.",
+  },
+  {
+    ...pacifico,
+    destacada: true,
+    src: "/media/obras/pacifico2-extendido.webp",
+    alt: "Pavimentadora y volqueta extendiendo mezcla asfáltica en caliente en Pacífico 2",
+    caption: "Extendido de mezcla asfáltica en caliente: rendimientos, volúmenes y tiempos de ciclo consolidados para la dirección.",
+  },
+  {
+    ...pacifico,
+    src: "/media/obras/pacifico2-liga.webp",
+    alt: "Carrotanque aplicando riego de liga con emulsión asfáltica sobre la superficie fresada",
+    caption: "Riego de liga con emulsión asfáltica antes de la nueva carpeta.",
+  },
+  {
+    ...pacifico,
+    src: "/media/obras/pacifico2-nocturno.webp",
+    alt: "Frente de pavimentación trabajando en horario nocturno en Pacífico 2",
+    caption: "Frentes nocturnos para minimizar el impacto sobre el tránsito.",
+  },
+  {
+    ...pacifico,
+    src: "/media/obras/pacifico2-compactacion.webp",
+    alt: "Cuadrilla nivelando y compactando la mezcla asfáltica detrás de la pavimentadora",
+    caption: "Nivelación y compactación de la mezcla detrás de la pavimentadora.",
+  },
+  {
+    ...pacifico,
+    src: "/media/obras/pacifico2-carril.webp",
+    alt: "Carril fresado listo para recibir la nueva carpeta asfáltica",
+    caption: "Carril fresado y delimitado, listo para la nueva carpeta.",
+  },
+  {
+    ...pacifico,
+    src: "/media/obras/pacifico2-terminado.webp",
+    alt: "Tramo del corredor Pacífico 2 con la carpeta asfáltica nueva terminada",
+    caption: "Tramo rehabilitado con la carpeta asfáltica terminada.",
   },
 ];
 

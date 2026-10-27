@@ -8,10 +8,10 @@ import { Reveal } from "../ui/Reveal";
 import { SectionHeading } from "../ui/SectionHeading";
 
 const chapters = [
-  { title: "El frente", place: "Frente de excavación", text: "Personas, turnos y maquinaria. Aquí empecé, y aquí se origina cada dato que después se mide." },
+  { title: "El frente", place: "Frente de excavación", text: "Personas, turnos y equipo pesado. Aquí empecé, y aquí se origina cada dato que después se mide." },
   { title: "El plano", place: "Oficina técnica", text: "Secciones, abscisas y cantidades: el idioma que une al campo con la oficina." },
   { title: "La obra", place: "Estructura en ejecución", text: "Concreto, acero y control de calidad. Lo que se registra bien, se puede mejorar." },
-  { title: "La vía", place: "Antioquia, Colombia", text: "Túneles y vías 4G que acortan distancias entre regiones y el mar." },
+  { title: "El corredor", place: "Antioquia, Colombia", text: "Túneles y concesiones viales 4G que acortan distancias entre regiones y el mar." },
   { title: "La tecnología", place: "Ingeniería electrónica", text: "Código, datos e inteligencia artificial puestos al servicio del frente de obra." },
 ];
 

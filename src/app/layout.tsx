@@ -60,6 +60,8 @@ const jsonLd = {
         "Inteligencia artificial",
         "Control operativo",
         "Obra civil",
+        "Infraestructura vial",
+        "Pavimentos flexibles",
         "Construcción subterránea",
         "Power BI",
         "Python",
