@@ -69,7 +69,7 @@ export const about = {
     {
       title: "La obra civil",
       body:
-        "En 2024 llegué a Construcciones El Cóndor como Auxiliar de Control en la oficina técnica. Desde entonces recorrí la Autopista Río Magdalena 2, una mina en Marmato, puentes en Risaralda, vías y una planta de asfalto en La Pintada, y hoy el Túnel del Toyo.",
+        "En 2024 llegué a Construcciones El Cóndor como Auxiliar de Control en la oficina técnica. Desde entonces recorrí la Autopista Río Magdalena 2, la planta de procesamiento de un proyecto minero en Marmato, puentes en Risaralda, vías y una planta de asfalto en La Pintada, y hoy el Túnel del Toyo.",
     },
     {
       title: "El código como herramienta de obra",
@@ -146,7 +146,7 @@ export const timeline: TimelineItem[] = [
     org: "Construcciones El Cóndor S.A.",
     role: "Auxiliar de Control · Oficina Técnica",
     place: "Caldas, Risaralda y Antioquia",
-    summary: "Coordinación simultánea de minería en Marmato, recalce de dovelas en puentes de Irra, reparcheo de Pacífico 2 y la planta de asfalto Poblanco en La Pintada.",
+    summary: "Coordinación simultánea del movimiento de tierra y montaje de planta en Marmato, recalce de dovelas en puentes de Irra, reparcheo de Pacífico 2 y la planta de asfalto Poblanco en La Pintada.",
     highlights: ["Lower Mine Marmato 2", "Puentes · Irra", "Pacífico 2 y planta Poblanco"],
   },
   {
@@ -192,13 +192,13 @@ export const obras: Obra[] = [
   },
   {
     name: "Lower Mine Marmato 2",
-    tag: "Minería subterránea",
+    tag: "Movimiento de tierra · planta",
     place: "Marmato, Caldas",
     period: "Jul 2025 – Mar 2026",
     lat: 5.47,
     lon: -75.6,
-    text: "Un entorno minero de alta complejidad operativa, donde impulsé la digitalización de la información productiva.",
-    facts: ["Minería", "Seguimiento diario", "Control de insumos"],
+    text: "Movimiento masivo de tierra y montaje de la planta de procesamiento del proyecto minero, en un entorno de alta complejidad operativa donde impulsé la digitalización de la información productiva.",
+    facts: ["Movimiento de tierra", "Montaje de planta", "Control de rendimientos"],
     aportes: ["Estandarización de registros de campo.", "Seguimiento detallado de actividades ejecutadas.", "Controles para garantizar la consistencia de los datos.", "Organización de información operacional para análisis.", "Estructuras para el control de rendimientos."],
     innovacion: ["Automatización de cálculos.", "Indicadores operativos.", "Consolidación de información de distintas fuentes.", "Menos tiempo en procesos manuales."],
     valor: "Convertí grandes volúmenes de datos operativos en información clara y procesable, para entender la evolución de los trabajos y elaborar informes técnicos.",

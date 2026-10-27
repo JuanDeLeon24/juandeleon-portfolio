@@ -24,7 +24,7 @@ export function Condor() {
             Seis obras, un mismo método
           </h3>
           <p data-reveal className="text-lg leading-relaxed text-ink/85 md:col-span-5 md:pt-3">
-            Vías, minería, puentes, una planta de asfalto y un túnel. Toca cada punto del mapa para ver qué hice en cada obra.
+            Vías, una planta minera, puentes, una planta de asfalto y un túnel. Toca cada punto del mapa para ver qué hice en cada obra.
           </p>
         </div>
         <div data-reveal>

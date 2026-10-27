@@ -186,14 +186,14 @@ export const fotosObra: ObraPhoto[] = [
     destacada: true,
     src: "/media/obras/marmato2-tanques.webp",
     alt: "Vista aérea de los tanques metálicos y estructuras en construcción del proyecto Lower Mine Marmato 2",
-    caption: "Tanques, estructuras y cimentaciones avanzando al mismo tiempo: un frente donde cada día se concilian insumos, equipos y mano de obra.",
+    caption: "Montaje de la planta de procesamiento: tanques, estructuras y cimentaciones avanzando al mismo tiempo, con insumos, equipos y mano de obra conciliados a diario.",
   },
   {
     ...mm2,
     destacada: true,
     src: "/media/obras/marmato2-portales.webp",
-    alt: "Portales de los túneles de acceso a la mina en Marmato, Caldas",
-    caption: "Los portales de acceso a la mina subterránea: obra civil al servicio de la minería en el distrito de Marmato.",
+    alt: "Plataforma de la planta de procesamiento frente a la ladera estabilizada en Marmato, Caldas",
+    caption: "Explanación y muros de la plataforma donde se monta la planta de procesamiento: movimiento masivo de tierra al pie de la ladera estabilizada.",
   },
   {
     ...mm2,
@@ -204,8 +204,8 @@ export const fotosObra: ObraPhoto[] = [
   {
     ...mm2,
     src: "/media/obras/marmato2-muros.webp",
-    alt: "Muros de contención y explanación frente a los portales de Marmato 2",
-    caption: "Muros de contención y explanación frente a los portales.",
+    alt: "Muros de contención y explanación de la plataforma de Marmato 2",
+    caption: "Muros de contención y explanación para la plataforma de la planta.",
   },
   {
     ...mm2,
