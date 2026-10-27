@@ -1,7 +1,8 @@
 "use client";
 import { useRef } from "react";
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
-import { media, obrasGallery } from "@/content/media";
+import { media, obrasGallery, fotosObra } from "@/content/media";
+import { obras } from "@/content/profile";
 import { SmartImage } from "../ui/SmartImage";
 import { Reveal } from "../ui/Reveal";
 import { SectionHeading } from "../ui/SectionHeading";
@@ -19,16 +20,26 @@ export function Obras() {
   return (
     <section id="obras" aria-labelledby="obras-t" className="relative">
       <Reveal className="wrap pb-16 pt-32 md:pt-48">
-        <SectionHeading id="obras-t" chainage="K8+200 · Obras y experiencias" title="Obras y experiencias" lead="Un recorrido visual por el mundo donde trabajo. Las fotos son de referencia con licencia libre; aquí irán las fotos reales de obra." />
+        <SectionHeading id="obras-t" chainage="K8+200 · Obras y experiencias" title="Obras y experiencias" lead={fotosObra.length ? "Vías, minería, puentes, asfalto y túneles: fotos reales de las obras donde he trabajado." : "Un recorrido visual por el mundo donde trabajo. Fotos de referencia con licencia libre mientras se cargan las fotos reales de obra."} />
       </Reveal>
-      {obrasGallery.map((key, i) => (
-        <Chapter key={key} index={i} item={media[key]} chapter={chapters[i]} />
-      ))}
+      {fotosObra.length > 0
+        ? fotosObra.map((f, i) => {
+            const o = obras.find((x) => x.name === f.obra);
+            return (
+              <Chapter
+                key={f.src}
+                index={i}
+                item={f}
+                chapter={{ title: f.obra, place: o ? `${o.place} · ${o.period}` : f.obra, text: f.caption ?? o?.text ?? "" }}
+              />
+            );
+          })
+        : obrasGallery.map((key, i) => <Chapter key={key} index={i} item={media[key]} chapter={chapters[i]} />)}
     </section>
   );
 }
 
-function Chapter({ index, item, chapter }: { index: number; item: (typeof media)[string]; chapter: (typeof chapters)[number] }) {
+function Chapter({ index, item, chapter }: { index: number; item: (typeof media)[string]; chapter: { title: string; place: string; text: string } }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   return (

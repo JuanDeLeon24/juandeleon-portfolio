@@ -38,7 +38,7 @@ export function Timeline() {
         track.querySelectorAll<HTMLElement>("[data-card]").forEach((card) => {
           gsap.fromTo(
             card,
-            { rotateY: -25, z: -120, opacity: 0.25 },
+            { rotateY: -18, z: -90, opacity: 0.35 },
             {
               rotateY: 0,
               z: 0,
@@ -67,7 +67,7 @@ export function Timeline() {
           id="trayectoria-t"
           chainage="K2+100 · Trayectoria"
           title="Una carrera construida por tramos"
-          lead="Cada etapa sumó una capa: la obra, la gestión y la tecnología. Desplázate para avanzar por el túnel."
+          lead="Del SENA a la ingeniería, del campo en La Guajira a seis obras con El Cóndor. Desplázate para avanzar por el túnel."
         />
       </Reveal>
 
@@ -78,21 +78,23 @@ export function Timeline() {
         <div ref={trackRef} className="wrap flex flex-col gap-6 lg:w-max lg:max-w-none lg:flex-row lg:gap-10 lg:pr-[20vw] [perspective:1400px]">
           {timeline.map((t, i) => (
             <article
-              key={t.period + t.org}
+              key={t.period + t.title}
               data-card
-              className="neo relative flex flex-col rounded-[28px] p-8 [transform-style:preserve-3d] lg:h-[62vh] lg:w-[min(30rem,38vw)] lg:p-10"
+              className="neo relative flex shrink-0 flex-col rounded-[28px] p-7 [transform-style:preserve-3d] md:p-9 lg:min-h-[58vh] lg:w-[25rem] xl:w-[27rem]"
             >
-              <div className="flex items-baseline justify-between gap-4">
-                <p className="tnum text-sm text-hivis">Tramo {String.fromCharCode(65 + i)}</p>
-                <p className="text-sm text-ink/70">{t.place}</p>
+              <div className="flex items-center justify-between gap-4">
+                <span className="tnum rounded-full bg-hivis/15 px-3 py-1 text-sm font-semibold text-hivis">{t.period}</span>
+                <span className="tnum text-sm text-ink/50">Tramo {String.fromCharCode(65 + i)}</span>
               </div>
-              <h3 className="display mt-6 text-3xl font-extrabold md:text-4xl">{t.period}</h3>
-              <p className="mt-3 text-lg font-semibold text-signal">{t.role}</p>
-              <p className="text-base text-ink/75">{t.org}</p>
-              <p className="mt-6 text-lg leading-relaxed text-ink/90">{t.summary}</p>
-              <ul className="mt-auto flex flex-wrap gap-2 pt-8">
+              <h3 className="display mt-6 text-[1.9rem] font-extrabold leading-[1.02] md:text-[2.2rem]">{t.title}</h3>
+              <p className="mt-3 text-base font-semibold leading-snug text-signal">{t.role}</p>
+              <p className="mt-1 text-[15px] text-ink/70">
+                {t.org} · {t.place}
+              </p>
+              <p className="mt-5 text-base leading-relaxed text-ink/90 md:text-[17px]">{t.summary}</p>
+              <ul className="mt-auto flex flex-wrap gap-2 pt-7">
                 {t.highlights.map((h) => (
-                  <li key={h} className="rounded-full bg-surface-3 px-4 py-2 text-sm text-ink/90">
+                  <li key={h} className="rounded-full bg-surface-3 px-3.5 py-1.5 text-sm text-ink/90">
                     {h}
                   </li>
                 ))}

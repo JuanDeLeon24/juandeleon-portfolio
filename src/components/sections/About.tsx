@@ -17,26 +17,36 @@ export function About() {
   return (
     <Reveal as="section" id="sobre-mi" aria-labelledby="sobre-mi-t" className="relative py-32 md:py-48">
       <div className="wrap">
-        <SectionHeading id="sobre-mi-t" chainage="K0+850 · Sobre mí" title="De obrero a ingeniero que automatiza la obra" lead={about.lead} />
+        <SectionHeading id="sobre-mi-t" chainage="K0+850 · Sobre mí" title="Del frente de obra al código" lead={about.lead} />
 
         <div className="grid gap-12 md:grid-cols-12 md:gap-8">
-          <div ref={photoRef} className="md:col-span-5 [perspective:1200px]">
-            <motion.figure style={{ rotateY: rotate }} className="relative aspect-[4/5] overflow-hidden rounded-[28px] neo">
-              <motion.div style={{ y }} className="absolute inset-[-8%]">
-                {about.photo ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={asset(about.photo)} alt="Juan Sebastián De León Rapalino" className="h-full w-full object-cover" loading="lazy" />
-                ) : (
-                  <SmartImage item={media.crew} />
-                )}
-              </motion.div>
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-6 pt-20 text-sm text-ink/85">
-                {about.photo ? "Juan Sebastián De León Rapalino" : "Espacio para tu fotografía profesional · imagen de referencia: Unsplash"}
-              </figcaption>
-            </motion.figure>
+          <div ref={photoRef} className="md:col-span-4 [perspective:1200px]">
+            <div className="md:sticky md:top-28">
+              <motion.figure style={{ rotateY: rotate }} className="relative mx-auto aspect-[4/5] w-full max-w-[240px] overflow-hidden rounded-[28px] neo md:mx-0 md:max-w-[340px]">
+                <motion.div style={{ y }} className="absolute inset-[-8%]">
+                  {about.photo ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={asset(about.photo)} alt="Juan Sebastián De León Rapalino en la oficina técnica" className="h-full w-full object-cover object-[50%_30%]" loading="lazy" />
+                  ) : (
+                    <SmartImage item={media.crew} />
+                  )}
+                </motion.div>
+                {/* marco técnico: esquinas de plano sobre la foto */}
+                <svg className="pointer-events-none absolute inset-3" viewBox="0 0 100 125" preserveAspectRatio="none" aria-hidden="true">
+                  {["M0 10V0H10", "M90 0H100V10", "M100 115V125H90", "M10 125H0V115"].map((d) => (
+                    <path key={d} d={d} fill="none" stroke="#ff6b1a" strokeWidth="0.8" vectorEffect="non-scaling-stroke" />
+                  ))}
+                </svg>
+              </motion.figure>
+              <div className="mx-auto mt-5 max-w-[340px] md:mx-0">
+                <p className="display text-2xl font-bold">Juan Sebastián De León Rapalino</p>
+                <p className="mt-1 text-base text-signal">Ingeniero Electrónico</p>
+                <p className="text-[15px] text-ink/70">Auxiliar de Control · Oficina Técnica · Construcciones El Cóndor</p>
+              </div>
+            </div>
           </div>
 
-          <div className="md:col-span-6 md:col-start-7">
+          <div className="md:col-span-7 md:col-start-6">
             <ol className="space-y-14">
               {about.chapters.map((c, i) => (
                 <li key={c.title} data-reveal className="relative pl-10">

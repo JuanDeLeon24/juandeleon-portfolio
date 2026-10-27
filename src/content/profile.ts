@@ -4,31 +4,31 @@
  * actualizar textos, cifras, enlaces, fotos, certificados y testimonios.
  *
  * Campos marcados con `// EDITAR` son espacios preparados para información
- * que todavía no está confirmada (fechas exactas, universidad, cursos...).
+ * que todavía no está confirmada.
  */
 
 export const site = {
   url: "https://juandeleon24.github.io/juandeleon-portfolio",
   name: "Juan Sebastián De León Rapalino",
   shortName: "Juan De León",
-  role: "Ingeniero Electrónico · Control operativo, automatización e IA aplicada a la obra civil",
+  role: "Ingeniero Electrónico · Control de producción y soluciones digitales para obra civil",
   description:
-    "Ingeniero Electrónico que creció dentro de la obra: de obrero en Construcciones El Cóndor a construir herramientas de automatización, análisis de datos e inteligencia artificial para túneles y vías 4G en Colombia.",
+    "Ingeniero Electrónico con más de dos años y medio en obras de infraestructura con Construcciones El Cóndor: vías, puentes, minería, plantas de asfalto y túneles. Uno la obra con la tecnología mediante apps, automatizaciones, análisis de datos e inteligencia artificial.",
   locale: "es_CO",
   keywords: [
     "Juan Sebastián De León Rapalino",
     "Ingeniero Electrónico",
     "Construcciones El Cóndor",
+    "control de producción",
+    "oficina técnica",
     "Túnel del Toyo",
     "Autopista Río Magdalena 2",
+    "Lower Mine Marmato",
     "automatización de procesos",
     "inteligencia artificial",
-    "control operativo",
-    "obra civil",
     "Power BI",
-    "Python",
-    "Flutter",
-    "VBA",
+    "Power Platform",
+    "React",
   ],
 };
 
@@ -52,25 +52,29 @@ export const hero = {
 };
 
 export const about = {
-  // Coloca tu foto profesional en /public/media/juan.jpg y escribe "/media/juan.jpg".
-  photo: "",
+  photo: "/media/juan.webp",
   lead:
-    "Empecé en la obra como obrero. Hoy diseño las herramientas que usa la obra para medirse, decidir y avanzar más rápido.",
+    "Seis obras en dos años y medio: vías, puentes, minería, asfalto y túneles. En cada una encontré un proceso manual y lo convertí en una herramienta.",
   chapters: [
     {
-      title: "El frente de obra",
+      title: "La base técnica",
       body:
-        "Entré a Construcciones El Cóndor con la esperanza de recibir oportunidades y la decisión de aprovecharlas. Aprendí la obra desde adentro: lectura de planos, ejecución de actividades, control de calidad, manejo de personal e incluso manipulación de explosivos para voladuras a cielo abierto.",
+        "Me formé en el SENA como técnico en sistemas y en seguridad informática, y luego como Ingeniero Electrónico en la Universidad Popular del Cesar. En paralelo estudié desarrollo web, JavaScript y React en Coderhouse, donde quedé en el top 10.",
     },
     {
-      title: "La oficina técnica",
+      title: "Liderar personas en campo",
       body:
-        "Con la formación de Ingeniero Electrónico pasé al lado administrativo: centros de costos, seguimiento y control de la información, reportes e indicadores. Ahí vi el problema real: procesos manuales, información dispersa y horas perdidas digitando.",
+        "En el Grupo Santa Clara, en San Juan del Cesar, supervisé personal y procesos productivos diarios y programé labores y recursos según la operación. Ahí aprendí que un buen control empieza por la gente.",
+    },
+    {
+      title: "La obra civil",
+      body:
+        "En 2024 llegué a Construcciones El Cóndor como Auxiliar de Control en la oficina técnica. Desde entonces recorrí la Autopista Río Magdalena 2, una mina en Marmato, puentes en Risaralda, vías y una planta de asfalto en La Pintada, y hoy el Túnel del Toyo.",
     },
     {
       title: "El código como herramienta de obra",
       body:
-        "Empecé a programar para resolver lo que tenía enfrente. Cambié un sistema muy manual de digitación y almacenamiento de la información de obra, y hoy construyo extensiones, macros, apps e integraciones con IA que convierten horas de trabajo repetitivo en minutos de revisión.",
+        "Identifico los cuellos de botella del control de obra y los resuelvo con herramientas propias: apps, automatizaciones y análisis de datos que eliminan reprocesos, reducen errores de digitación y entregan información confiable y al día.",
     },
   ],
   difference: [
@@ -82,6 +86,7 @@ export const about = {
 
 export type TimelineItem = {
   period: string;
+  title: string;
   org: string;
   role: string;
   place: string;
@@ -91,106 +96,177 @@ export type TimelineItem = {
 
 export const timeline: TimelineItem[] = [
   {
-    period: "Formación", // EDITAR: años y universidad
-    org: "Ingeniería Electrónica",
+    period: "2016 – 2018",
+    title: "SENA",
+    org: "Servicio Nacional de Aprendizaje",
+    role: "Técnico en Sistemas · Técnico en Seguridad y Sistemas Informáticos",
+    place: "Cesar",
+    summary: "Ofimática (2016), Técnico en Sistemas (2017) y Técnico en Seguridad y Sistemas Informáticos (2018).",
+    highlights: ["Sistemas", "Seguridad informática", "Ofimática"],
+  },
+  {
+    period: "2021 – 2023",
+    title: "Grupo Santa Clara",
+    org: "Fincas del Grupo Santa Clara",
+    role: "Supervisor de operaciones",
+    place: "San Juan del Cesar, La Guajira",
+    summary: "Supervisión de personal y procesos productivos diarios; programación de labores y administración de recursos operativos.",
+    highlights: ["Supervisión de personal", "Programación de labores", "Recursos operativos"],
+  },
+  {
+    period: "2022",
+    title: "Coderhouse",
+    org: "Carrera de Desarrollo Frontend React",
+    role: "Desarrollo web, JavaScript y React",
+    place: "En línea",
+    summary: "Carrera de 26 semanas: Desarrollo Web, JavaScript y React Js. Top 10 en Desarrollo Web, JavaScript y en la carrera.",
+    highlights: ["React", "JavaScript", "Top 10"],
+  },
+  {
+    period: "Dic 2023",
+    title: "Ingeniero Electrónico",
+    org: "Universidad Popular del Cesar",
     role: "Pregrado",
-    place: "Colombia",
-    summary: "Base en sistemas, señales, programación y análisis que hoy aplico al control de procesos de obra.",
-    highlights: ["Programación y sistemas embebidos", "Análisis de datos y señales", "Pensamiento de ingeniería"],
+    place: "Valledupar",
+    summary: "Título de Ingeniero Electrónico: sistemas, señales, programación y análisis aplicados al control de procesos.",
+    highlights: ["Electrónica", "Programación", "Análisis"],
   },
   {
-    period: "Inicio en El Cóndor", // EDITAR: año de ingreso
+    period: "Feb 2024 – Jul 2025",
+    title: "Autopista Río Magdalena 2",
     org: "Construcciones El Cóndor S.A.",
-    role: "Obrero · frente de obra",
-    place: "Antioquia",
-    summary: "Primer contacto con la obra civil: ejecución de actividades en campo y aprendizaje del proceso constructivo.",
-    highlights: ["Ejecución de actividades", "Lectura de planos", "Voladuras a cielo abierto"],
+    role: "Auxiliar de Control · Oficina Técnica",
+    place: "Vegachí, Antioquia",
+    summary: "Llegada a El Cóndor en un proyecto vial 4G: control de producción, insumos, maquinaria y personal; certificación SENA en manejo de explosivos y voladura.",
+    highlights: ["Control de producción", "Explosivos y voladura (SENA)", "Digitalización de formatos"],
   },
   {
-    period: "Río Magdalena II",
-    org: "Autopista al Río Magdalena 2 · El Cóndor",
-    role: "Supervisión, calidad y oficina técnica",
-    place: "Nordeste y Magdalena Medio antioqueño",
-    summary: "Trabajo bajo presión en un proyecto vial 4G: supervisión, control de calidad, manejo de personal y gestión de información.",
-    highlights: [
-      "Supervisión y control de calidad",
-      "Manejo de personal",
-      "Digitalización de la información de obra",
-    ],
-  },
-  {
-    period: "Oficina técnica",
+    period: "Jul 2025 – Mar 2026",
+    title: "Cuatro frentes a la vez",
     org: "Construcciones El Cóndor S.A.",
-    role: "Control de información y centros de costos",
-    place: "Antioquia",
-    summary: "Seguimiento y control de centros de costos, reportes, indicadores y análisis de datos con Excel avanzado y Power BI.",
-    highlights: ["Centros de costos", "Dashboards en Power BI", "Automatización con Excel y VBA"],
+    role: "Auxiliar de Control · Oficina Técnica",
+    place: "Caldas, Risaralda y Antioquia",
+    summary: "Coordinación simultánea de minería en Marmato, recalce de dovelas en puentes de Irra, reparcheo de Pacífico 2 y la planta de asfalto Poblanco en La Pintada.",
+    highlights: ["Lower Mine Marmato 2", "Puentes · Irra", "Pacífico 2 y planta Poblanco"],
   },
   {
-    period: "Túnel del Toyo · hoy",
-    org: "Almacén El Toyo · El Cóndor",
-    role: "Control operativo, nómina de túneles y automatización",
-    place: "Occidente antioqueño",
-    summary: "Control del tiempo del personal de túneles, imputación a destinos de obra y desarrollo de herramientas propias que automatizan el proceso de punta a punta.",
-    highlights: [
-      "Aprobador de jornadas (extensión propia)",
-      "Asignación automática de destinos",
-      "Reportes de horas extras",
-    ],
+    period: "Mar 2026 – hoy",
+    title: "Túnel del Toyo",
+    org: "Construcciones El Cóndor S.A.",
+    role: "Auxiliar de Control · Oficina Técnica",
+    place: "Santa Fe de Antioquia",
+    summary: "Control del personal de túneles, aprobación de jornadas, imputación a centros de costo y herramientas propias que automatizan el proceso.",
+    highlights: ["Aprobador de jornadas", "Control de concretos", "Auditor de maquinaria"],
+  },
+];
+
+export type Obra = {
+  name: string;
+  tag: string;
+  place: string;
+  period: string;
+  /** coordenadas aproximadas para el mapa del recorrido */
+  lat: number;
+  lon: number;
+  text: string;
+  facts: string[];
+};
+
+/** Obras en orden cronológico, según la hoja de vida. */
+export const obras: Obra[] = [
+  {
+    name: "Autopista Río Magdalena 2",
+    tag: "Vía 4G",
+    place: "Vegachí, Antioquia",
+    period: "Feb 2024 – Jul 2025",
+    lat: 6.77,
+    lon: -74.8,
+    text: "Mi primer proyecto con El Cóndor. Control de producción y avance, insumos, maquinaria y personal en una autopista de cuarta generación.",
+    facts: ["Control de producción", "Horómetros de maquinaria", "Explosivos y voladura"],
+  },
+  {
+    name: "Lower Mine Marmato 2",
+    tag: "Minería subterránea",
+    place: "Marmato, Caldas",
+    period: "Jul 2025 – Mar 2026",
+    lat: 5.47,
+    lon: -75.6,
+    text: "Obras para minería en el distrito de Marmato: seguimiento de actividades e insumos y conciliación de equipos en un entorno subterráneo.",
+    facts: ["Minería", "Seguimiento diario", "Control de insumos"],
+  },
+  {
+    name: "Dovelas en puentes · Irra",
+    tag: "Puentes",
+    place: "Irra, Risaralda",
+    period: "Jul 2025 – Mar 2026",
+    lat: 5.27,
+    lon: -75.66,
+    text: "Reparación y recalces de dovelas en puentes: control de cantidades, mano de obra y equipos por frente.",
+    facts: ["Estructuras", "Cantidades de obra", "Centros de costo"],
+  },
+  {
+    name: "Reparcheo Pacífico 2",
+    tag: "Vías",
+    place: "La Pintada, Antioquia",
+    period: "Jul 2025 – Mar 2026",
+    lat: 5.75,
+    lon: -75.6,
+    text: "Mantenimiento y reparcheo de la vía Pacífico 2: rendimientos, insumos y avance diario consolidados para la dirección.",
+    facts: ["Pavimentos", "Rendimientos", "Reportes diarios"],
+  },
+  {
+    name: "Planta de asfalto Poblanco",
+    tag: "Planta de producción",
+    place: "La Pintada, Antioquia",
+    period: "Jul 2025 – Mar 2026",
+    lat: 5.72,
+    lon: -75.64,
+    text: "Control de producción de una planta de asfalto: producción, horas máquina y despachos en tableros de Excel y Power BI.",
+    facts: ["Producción", "Horas máquina", "Power BI"],
+  },
+  {
+    name: "Túnel del Toyo",
+    tag: "Túnel",
+    place: "Santa Fe de Antioquia",
+    period: "Mar 2026 – hoy",
+    lat: 6.56,
+    lon: -75.83,
+    text: "Parte del eje vial que conecta Medellín con Urabá y el mar. Control del personal de túneles por turnos, concretos de revestimiento y maquinaria.",
+    facts: ["Turnos de 9,5 y 10,5 h", "Control de concretos", "Jornadas automatizadas"],
   },
 ];
 
 export const condor = {
   intro:
-    "Construcciones El Cóndor es una de las constructoras de infraestructura más grandes de Colombia. Dentro de ella hice todo el recorrido: del frente de obra a la oficina técnica, y de la oficina técnica al código.",
+    "Construcciones El Cóndor es una de las constructoras de infraestructura más grandes de Colombia. Desde febrero de 2024 trabajo en su oficina técnica como Auxiliar de Control, coordinando la información entre frentes de trabajo, proveedores y áreas técnicas.",
   activities: [
-    "Control operativo del personal de túneles",
-    "Aprobación de jornadas y horas extras",
-    "Imputación de horas a destinos y centros de costos",
-    "Gestión documental de obra",
-    "Seguimiento de actividades y programación",
-    "Reportes e indicadores de gestión",
-    "Supervisión y control de calidad",
-    "Lectura de planos y ejecución de actividades",
-    "Manejo de personal",
-    "Voladuras a cielo abierto",
-  ],
-  works: [
-    {
-      name: "Túnel del Toyo",
-      tag: "Túnel · vía al mar",
-      place: "Cañasgordas – Giraldo, Antioquia",
-      coords: "6.75° N · 76.02° O (aprox.)",
-      text:
-        "Parte del eje vial que conecta a Medellín con Urabá y el mar Caribe. Desde el Almacén El Toyo controlo el tiempo del personal de túneles por turnos diurnos, nocturnos y de revestimiento.",
-      facts: ["Turnos 9,5 h y 10,5 h", "Personal por grupos y frentes", "Destinos por centro de costo"],
-    },
-    {
-      name: "Autopista al Río Magdalena 2",
-      tag: "Vía 4G",
-      place: "Remedios – Puerto Berrío, Antioquia",
-      coords: "6.70° N · 74.55° O (aprox.)",
-      text:
-        "Proyecto de cuarta generación donde fortalecí la supervisión, el control de calidad, el manejo de personal y transformé la forma de registrar la información de obra.",
-      facts: ["Supervisión en campo", "Control de calidad", "Información de obra digitalizada"],
-    },
+    "Control de producción y avance de obra",
+    "Coordinación de frentes, proveedores y áreas técnicas",
+    "Control de costos y centros de costo",
+    "Imputación de mano de obra y equipos",
+    "Conciliación de horas y horómetros",
+    "Aprobación de jornadas frente a la programación",
+    "Control de concretos y materiales",
+    "Reportes diarios y semanales",
+    "Tableros en Excel y Power BI",
+    "Manejo de explosivos y voladura",
   ],
   contributions: [
     {
-      title: "De la digitación manual al dato estructurado",
-      text: "Reemplacé un sistema muy manual para digitar y almacenar la información de obra por un flujo estructurado y reutilizable para reportes.",
+      title: "Formatos de campo digitales",
+      text: "Concretos, maquinaria, personal y avance de obra pasaron del papel a apps web y móviles, con la información disponible al instante para la oficina técnica.",
     },
     {
-      title: "Aprobador de jornadas – El Cóndor",
-      text: "Extensión de Chrome propia que analiza marcaciones contra la programación, genera el Excel de revisión, aprueba solo lo validado y aprende de cada decisión.",
+      title: "Aprobación de jornadas automatizada",
+      text: "Cruza las marcaciones del personal contra la programación y asigna centros de costo: la revisión manual se reduce a validar con OK.",
     },
     {
-      title: "Destinos automáticos",
-      text: "Reparte las horas de cada grupo entre sus destinos de obra por resto mayor, respetando el destino que traía cada persona.",
+      title: "Auditor de maquinaria",
+      text: "Extrae las horas por equipo de la plataforma, las audita en Excel y carga las correcciones pendientes.",
     },
     {
-      title: "Rendimiento sobre VPN",
-      text: "Rediseñé la interacción con la plataforma de nómina filtrando por cédula: el estado de cada consulta pasó de ~1,7 MB a ~35 KB.",
+      title: "Tableros de control",
+      text: "Producción, rendimientos, horas máquina, mano de obra y costos en Excel y Power BI para las decisiones del proyecto.",
     },
   ],
 };
@@ -242,6 +318,19 @@ export const projects: Project[] = [
       "Consultas por cédula: de ~1,7 MB a ~35 KB por postback.",
     ],
     image: "excel",
+  },
+  {
+    id: "maquinaria",
+    category: "Automatización de procesos",
+    title: "Auditor de maquinaria",
+    stack: ["Excel", "VBA", "Automatización"],
+    summary: "Extrae las horas por equipo de la plataforma, las audita contra los horómetros en Excel y carga las correcciones pendientes.",
+    details: [
+      "Conciliación de horas y horómetros por equipo.",
+      "Detección de diferencias antes del cierre.",
+      "Carga de correcciones pendientes en la plataforma.",
+    ],
+    image: "site",
   },
   {
     id: "concreto",
@@ -361,16 +450,18 @@ export const sideProjects: SideProject[] = [
 
 export const skills = [
   { name: "Excel avanzado", level: 95, group: "Datos" },
-  { name: "VBA", level: 88, group: "Automatización" },
+  { name: "Power BI", level: 88, group: "Datos" },
+  { name: "Bases de datos / SQL", level: 75, group: "Datos" },
   { name: "Automatización", level: 92, group: "Automatización" },
-  { name: "Python", level: 82, group: "Desarrollo" },
-  { name: "Power BI", level: 85, group: "Datos" },
-  { name: "IA generativa", level: 88, group: "IA" },
-  { name: "APIs", level: 78, group: "Desarrollo" },
-  { name: "Flutter", level: 72, group: "Desarrollo" },
-  { name: "Firebase", level: 70, group: "Desarrollo" },
+  { name: "VBA", level: 85, group: "Automatización" },
+  { name: "Power Platform", level: 80, group: "Automatización" },
+  { name: "React", level: 82, group: "Desarrollo" },
+  { name: "JavaScript", level: 85, group: "Desarrollo" },
+  { name: "Python", level: 78, group: "Desarrollo" },
+  { name: "Flutter / móvil", level: 70, group: "Desarrollo" },
   { name: "GitHub", level: 80, group: "Desarrollo" },
-  { name: "SQL", level: 74, group: "Datos" },
+  { name: "IA generativa", level: 88, group: "IA" },
+  { name: "Azure AI", level: 72, group: "IA" },
   { name: "Machine Learning", level: 62, group: "IA" },
 ];
 
@@ -396,53 +487,54 @@ export const ai = {
 
 /** Indicadores. Solo cifras verificables; completa las demás cuando las tengas medidas. */
 export const impact = [
-  { value: 2, suffix: "", label: "megaproyectos de infraestructura" },
+  { value: 6, suffix: "", label: "obras de infraestructura en El Cóndor" },
+  { value: 30, suffix: "+", label: "meses en obra civil" },
+  { value: 4, suffix: "", label: "frentes coordinados al mismo tiempo" },
   { value: 98, suffix: "%", label: "menos peso por consulta en nómina" },
-  { value: 6, suffix: "", label: "etapas del proceso de jornadas automatizadas" },
-  { value: 4, suffix: "", label: "tipos de turno de túnel modelados" },
-  { value: 5, suffix: "", label: "frentes tecnológicos: automatización, software, IA, datos y documentos" },
+  { value: 20, suffix: "+", label: "certificaciones y títulos" },
 ];
 
-export type Testimonial = { quote: string; name: string; role: string; relation: string; placeholder?: boolean };
+/**
+ * Comentarios de jefes y compañeros: se guardan en Firebase Firestore
+ * (colección "testimonios", espacios 1 a 4). Sigue FIREBASE.md y pega aquí
+ * el projectId y la apiKey web de tu proyecto. Mientras estén vacíos, el
+ * formulario envía el comentario por WhatsApp.
+ */
+export const testimoniosDb = {
+  projectId: "",
+  apiKey: "",
+  slots: 4,
+};
 
-export const testimonials: Testimonial[] = [
-  {
-    quote: "Espacio reservado para el testimonio de un jefe directo. Pídele dos o tres frases sobre un resultado concreto.",
-    name: "Nombre del jefe",
-    role: "Cargo · Construcciones El Cóndor",
-    relation: "Jefe",
-    placeholder: true,
-  },
-  {
-    quote: "Espacio reservado para un supervisor que haya visto en obra el antes y el después de una herramienta.",
-    name: "Nombre del supervisor",
-    role: "Supervisor de túnel",
-    relation: "Supervisor",
-    placeholder: true,
-  },
-  {
-    quote: "Espacio reservado para un compañero que use a diario alguna de las herramientas desarrolladas.",
-    name: "Nombre del compañero",
-    role: "Oficina técnica",
-    relation: "Compañero",
-    placeholder: true,
-  },
-  {
-    quote: "Espacio reservado para un cliente o interventoría.",
-    name: "Nombre del cliente",
-    role: "Entidad",
-    relation: "Cliente",
-    placeholder: true,
-  },
+export type Certification = { title: string; issuer: string; year: string; kind: string; file?: string; badge?: string };
+
+export const education: Certification[] = [
+  { title: "Ingeniero Electrónico", issuer: "Universidad Popular del Cesar · Valledupar", year: "2023", kind: "Pregrado" },
+  { title: "Técnico en Seguridad y Sistemas Informáticos", issuer: "SENA · Regional Cesar", year: "2018", kind: "Técnico" },
+  { title: "Técnico en Sistemas", issuer: "SENA · Regional Cesar", year: "2017", kind: "Técnico" },
 ];
-
-export type Certification = { title: string; issuer: string; year: string; kind: string; file?: string; placeholder?: boolean };
 
 export const certifications: Certification[] = [
-  { title: "Ingeniería Electrónica", issuer: "Universidad · EDITAR", year: "—", kind: "Formación académica" },
-  { title: "Manipulación de explosivos para voladuras a cielo abierto", issuer: "EDITAR entidad", year: "—", kind: "Certificación" },
-  { title: "Power BI / Análisis de datos", issuer: "EDITAR entidad", year: "—", kind: "Curso", placeholder: true },
-  { title: "Python para automatización", issuer: "EDITAR entidad", year: "—", kind: "Curso", placeholder: true },
-  { title: "Inteligencia artificial generativa", issuer: "EDITAR entidad", year: "—", kind: "Curso", placeholder: true },
-  { title: "Diplomado", issuer: "EDITAR entidad", year: "—", kind: "Diplomado", placeholder: true },
+  { title: "Manejo de explosivos y accesorios de voladura", issuer: "SENA · 48 h · Vegachí", year: "2024", kind: "Obra" },
+  { title: "Desarrollo Frontend React Career", issuer: "Coderhouse · 26 semanas · Top 10", year: "2022", kind: "Desarrollo" },
+  { title: "Desarrollo Web", issuer: "Coderhouse · 38 h · Top 10", year: "2022", kind: "Desarrollo" },
+  { title: "JavaScript", issuer: "Coderhouse · 34 h · Top 10", year: "2022", kind: "Desarrollo" },
+  { title: "React Js", issuer: "Coderhouse · 28 h", year: "2022", kind: "Desarrollo" },
+  { title: "Gestor Tecnológico Certificado", issuer: "Asociación de Tecnología, Gestión e Ingeniería Aplicada", year: "—", kind: "Gestión" },
+  { title: "Ofimática", issuer: "SENA · 40 h", year: "2016", kind: "Ofimática" },
+];
+
+/** Certificaciones Microsoft (código de examen). */
+export const microsoftCerts = [
+  { code: "AI-102", title: "Azure AI Engineer Associate", level: "Associate" },
+  { code: "AZ-204", title: "Azure Developer Associate", level: "Associate" },
+  { code: "AZ-120", title: "Azure for SAP Workloads Specialty", level: "Specialty" },
+  { code: "MS-700", title: "Teams Administrator Associate", level: "Associate" },
+  { code: "MB-210", title: "Dynamics 365 Sales Functional Consultant", level: "Associate" },
+  { code: "PL-900", title: "Power Platform Fundamentals", level: "Fundamentals" },
+  { code: "AZ-900", title: "Azure Fundamentals", level: "Fundamentals" },
+  { code: "MS-900", title: "Microsoft 365 Fundamentals", level: "Fundamentals" },
+  { code: "SC-900", title: "Security, Compliance and Identity Fundamentals", level: "Fundamentals" },
+  { code: "MO-111", title: "Office Specialist: Word Expert", level: "Expert" },
+  { code: "62-193", title: "Microsoft Certified Educator", level: "Educator" },
 ];

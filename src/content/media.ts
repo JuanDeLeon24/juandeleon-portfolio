@@ -130,6 +130,15 @@ export const media: Record<string, MediaItem> = {
   },
 };
 
+/**
+ * Fotos reales de obra. Copia cada foto a /public/media/obras/ y agrégala aquí
+ * con el nombre exacto de la obra (igual que en `obras` de profile.ts):
+ * aparecerán en el mapa del recorrido y en la galería de obras.
+ */
+export type ObraPhoto = MediaItem & { obra: string };
+
+export const fotosObra: ObraPhoto[] = [];
+
 /** Secuencia de la galería de obras (estilo reportaje). */
 export const obrasGallery = ["crew", "blueprint", "site", "road", "engineer"] as const;
 

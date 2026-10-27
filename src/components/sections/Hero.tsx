@@ -26,6 +26,17 @@ export function Hero() {
 
       <div className="wrap relative grid gap-10 md:grid-cols-12">
         <div className="md:col-span-11 lg:col-span-10">
+          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.8 }} className="mb-6 flex items-center gap-3 md:hidden">
+            <span className="h-12 w-12 overflow-hidden rounded-full ring-2 ring-hivis">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={asset("/media/juan-avatar.webp")} alt="" className="h-full w-full object-cover" width={48} height={48} />
+            </span>
+            <span className="text-[15px] leading-tight text-ink/85">
+              Juan Sebastián De León
+              <br />
+              <span className="text-ink/60">Ingeniero Electrónico</span>
+            </span>
+          </motion.div>
           <h1 className="display max-w-[22ch] text-[clamp(2.3rem,4.9vw,5.4rem)] font-extrabold">
             {words.map((w, i) => (
               <span key={i} className="inline-block overflow-hidden pb-[0.08em] align-bottom">
@@ -65,6 +76,10 @@ export function Hero() {
           transition={{ delay: 1.4, duration: 1 }}
           className="hidden self-end text-right text-sm text-ink/70 md:col-span-2 md:col-start-11 md:block lg:col-span-3 lg:col-start-10"
         >
+          <span className="mb-4 ml-auto block h-20 w-20 overflow-hidden rounded-full ring-2 ring-hivis ring-offset-4 ring-offset-ground">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={asset("/media/juan-avatar.webp")} alt="" className="h-full w-full object-cover" width={80} height={80} />
+          </span>
           <p className="text-ink">Juan Sebastián De León Rapalino</p>
           <p>Ingeniero Electrónico</p>
           <p>Construcciones El Cóndor · Antioquia</p>

@@ -2,13 +2,11 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { condor, jornadasCase } from "@/content/profile";
-import { media } from "@/content/media";
 import { Reveal } from "../ui/Reveal";
 import { SectionHeading } from "../ui/SectionHeading";
-import { SmartImage } from "../ui/SmartImage";
 import { Counter } from "../ui/Counter";
 import { JornadaCalculator } from "../ui/JornadaCalculator";
-import { TunnelSection } from "../ui/TunnelSection";
+import { ObrasMap } from "../ui/ObrasMap";
 
 export function Condor() {
   return (
@@ -19,34 +17,19 @@ export function Condor() {
 
       <Marquee items={condor.activities} />
 
-      {/* Obras */}
-      <Reveal className="wrap mt-24 grid gap-8 md:mt-32 lg:grid-cols-2">
-        {condor.works.map((w, i) => (
-          <article key={w.name} data-reveal className="group neo relative overflow-hidden rounded-[32px]">
-            <div className="relative aspect-[16/10] overflow-hidden">
-              <div className="absolute inset-0 transition-transform duration-[1.4s] ease-out group-hover:scale-105">
-                <SmartImage item={i === 0 ? media.site : media.road} />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/30 to-transparent" />
-              <TunnelSection label={`Sección esquemática · ${w.name}`} className="absolute bottom-5 right-5 h-24 w-32 rounded-xl opacity-90 md:h-28 md:w-36" />
-            </div>
-            <div className="p-8 md:p-10">
-              <p className="text-sm text-hivis">{w.tag}</p>
-              <h3 className="display mt-3 text-4xl font-extrabold md:text-5xl">{w.name}</h3>
-              <p className="tnum mt-2 text-sm text-ink/70">
-                {w.place} · {w.coords}
-              </p>
-              <p className="mt-6 text-lg leading-relaxed text-ink/90">{w.text}</p>
-              <ul className="mt-6 flex flex-wrap gap-2">
-                {w.facts.map((f) => (
-                  <li key={f} className="rounded-full bg-surface-3 px-4 py-2 text-sm">
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </article>
-        ))}
+      {/* Recorrido por las obras */}
+      <Reveal className="wrap mt-24 md:mt-32">
+        <div className="mb-10 grid gap-6 md:grid-cols-12">
+          <h3 data-reveal className="display text-[clamp(2rem,4.4vw,4rem)] font-extrabold md:col-span-7">
+            Seis obras, un mismo método
+          </h3>
+          <p data-reveal className="text-lg leading-relaxed text-ink/85 md:col-span-5 md:pt-3">
+            Vías, minería, puentes, una planta de asfalto y un túnel. Toca cada punto del mapa para ver qué hice en cada obra.
+          </p>
+        </div>
+        <div data-reveal>
+          <ObrasMap />
+        </div>
       </Reveal>
 
       {/* Aportes */}
