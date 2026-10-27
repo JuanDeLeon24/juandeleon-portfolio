@@ -20,21 +20,23 @@ export function Obras() {
   return (
     <section id="obras" aria-labelledby="obras-t" className="relative">
       <Reveal className="wrap pb-16 pt-32 md:pt-48">
-        <SectionHeading id="obras-t" chainage="K8+200 · Obras y experiencias" title="Obras y experiencias" lead={fotosObra.length ? "Vías, minería, puentes, asfalto y túneles: fotos reales de las obras donde he trabajado." : "Un recorrido visual por el mundo donde trabajo. Fotos de referencia con licencia libre mientras se cargan las fotos reales de obra."} />
+        <SectionHeading id="obras-t" chainage="K8+200 · Obras y experiencias" title="Obras y experiencias" lead="Un recorrido visual por las obras donde he trabajado y el mundo que las rodea. Cada foto lleva su crédito." />
       </Reveal>
-      {fotosObra.length > 0
-        ? fotosObra.map((f, i) => {
-            const o = obras.find((x) => x.name === f.obra);
-            return (
-              <Chapter
-                key={f.src}
-                index={i}
-                item={f}
-                chapter={{ title: f.obra, place: o ? `${o.place} · ${o.period}` : f.obra, text: f.caption ?? o?.text ?? "" }}
-              />
-            );
-          })
-        : obrasGallery.map((key, i) => <Chapter key={key} index={i} item={media[key]} chapter={chapters[i]} />)}
+      {fotosObra.map((f, i) => {
+        const o = obras.find((x) => x.name === f.obra);
+        return (
+          <Chapter
+            key={f.src}
+            index={i}
+            item={f}
+            chapter={{ title: f.obra, place: o ? `${o.place} · ${o.period}` : f.obra, text: f.caption ?? o?.text ?? "" }}
+          />
+        );
+      })}
+      {fotosObra.length < 6 &&
+        obrasGallery
+          .slice(0, 6 - fotosObra.length)
+          .map((key, i) => <Chapter key={key} index={fotosObra.length + i} item={media[key]} chapter={chapters[i]} />)}
     </section>
   );
 }
@@ -58,7 +60,7 @@ function Chapter({ index, item, chapter }: { index: number; item: (typeof media)
             <p className="tnum text-sm text-hivis">
               Capítulo {index + 1} · {chapter.place}
             </p>
-            <h3 className="display mt-3 text-[clamp(3rem,9vw,8rem)] font-extrabold">{chapter.title}</h3>
+            <h3 className="display mt-3 max-w-[14ch] text-[clamp(2.6rem,6.5vw,6.5rem)] font-extrabold">{chapter.title.replace(/ (\S{1,3})$/, "\u00a0$1")}</h3>
             <p className="mt-4 text-xl leading-relaxed text-ink/90">{chapter.text}</p>
             <p className="mt-6 text-sm text-ink/70">
               Foto: {item.credit} · {item.license}

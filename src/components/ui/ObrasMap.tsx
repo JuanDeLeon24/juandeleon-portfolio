@@ -5,6 +5,7 @@ import { obras } from "@/content/profile";
 import { fotosObra } from "@/content/media";
 import { SmartImage } from "./SmartImage";
 import { TunnelSection } from "./TunnelSection";
+import { asset } from "@/lib/asset";
 
 /**
  * Mapa esquemático del recorrido por las obras: cada obra es un nodo y la
@@ -46,11 +47,17 @@ const route = pcbPath(pts);
 
 export function ObrasMap() {
   const [active, setActive] = useState(obras.length - 1);
+  const [photoIdx, setPhotoIdx] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 80%", "center 50%"] });
   const draw = useTransform(scrollYProgress, [0, 1], [0, 1]);
   const o = obras[active];
   const photos = fotosObra.filter((f) => f.obra === o.name);
+  const photo = photos[Math.min(photoIdx, photos.length - 1)];
+  const select = (i: number) => {
+    setActive(i);
+    setPhotoIdx(0);
+  };
 
   return (
     <div ref={ref} className="grid gap-8 lg:grid-cols-12">
@@ -93,9 +100,9 @@ export function ObrasMap() {
                 tabIndex={0}
                 aria-pressed={on}
                 aria-label={`${ob.name}, ${ob.place}, ${ob.period}`}
-                onClick={() => setActive(i)}
-                onMouseEnter={() => setActive(i)}
-                onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setActive(i)}
+                onClick={() => select(i)}
+                onMouseEnter={() => active !== i && select(i)}
+                onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && select(i)}
                 className="cursor-pointer outline-none"
               >
                 {on && (
@@ -118,7 +125,7 @@ export function ObrasMap() {
             <li key={ob.name}>
               <button
                 type="button"
-                onClick={() => setActive(i)}
+                onClick={() => select(i)}
                 aria-pressed={i === active}
                 className={`rounded-full px-4 py-2 text-sm font-medium transition ${i === active ? "bg-hivis text-black" : "bg-surface-3 text-ink hover:bg-surface-2"}`}
               >
@@ -138,18 +145,40 @@ export function ObrasMap() {
             aria-live="polite"
           >
             <div className="relative aspect-[16/9] overflow-hidden bg-surface-2">
-              {photos[0] ? (
-                <SmartImage item={photos[0]} />
+              {photo ? (
+                <AnimatePresence mode="wait">
+                  <motion.div key={photo.src} className="absolute inset-0" initial={{ opacity: 0, scale: 1.06 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
+                    <SmartImage item={photo} />
+                  </motion.div>
+                </AnimatePresence>
               ) : (
                 <TunnelSection label={`Sección esquemática · ${o.name}`} className="h-full w-full" />
               )}
               <span className="absolute left-4 top-4 rounded-full bg-black/60 px-3 py-1.5 text-sm backdrop-blur">{o.tag}</span>
+              {photos.length > 1 && (
+                <div className="absolute bottom-3 right-3 flex gap-2">
+                  {photos.map((p, k) => (
+                    <button
+                      key={p.src}
+                      type="button"
+                      onClick={() => setPhotoIdx(k)}
+                      aria-label={`Ver foto ${k + 1}: ${p.alt}`}
+                      aria-pressed={photo === p}
+                      className={`h-12 w-16 overflow-hidden rounded-lg ring-2 transition ${photo === p ? "ring-hivis" : "ring-white/30 opacity-75 hover:opacity-100"}`}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={asset(p.src.replace(".webp", "-sm.webp"))} alt="" className="h-full w-full object-cover" loading="lazy" />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="p-7">
               <p className="tnum text-sm text-hivis">{o.period}</p>
-              <h4 className="display mt-2 text-3xl font-extrabold md:text-4xl">{o.name}</h4>
+              <h4 className="display mt-2 text-3xl font-extrabold md:text-4xl">{o.name.replace(/ (\S{1,3})$/, "\u00a0$1")}</h4>
               <p className="mt-1 text-[15px] text-ink/70">{o.place}</p>
               <p className="mt-4 text-lg leading-relaxed text-ink/90">{o.text}</p>
+              {photo && <p className="mt-3 text-sm text-ink/55">Foto: {photo.credit}</p>}
               <ul className="mt-5 flex flex-wrap gap-2">
                 {o.facts.map((f) => (
                   <li key={f} className="rounded-full bg-surface-3 px-3.5 py-1.5 text-sm">

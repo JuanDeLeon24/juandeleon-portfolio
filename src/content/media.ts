@@ -137,7 +137,33 @@ export const media: Record<string, MediaItem> = {
  */
 export type ObraPhoto = MediaItem & { obra: string };
 
-export const fotosObra: ObraPhoto[] = [];
+const m2 = {
+  obra: "Autopista Río Magdalena 2",
+  credit: "Archivo del proyecto Autopista Río Magdalena 2",
+  license: "Derechos reservados de sus autores",
+  sourceUrl: "https://www.ani.gov.co",
+};
+
+export const fotosObra: ObraPhoto[] = [
+  {
+    ...m2,
+    src: "/media/obras/magdalena2-glorieta.webp",
+    alt: "Vista aérea de una glorieta de la Autopista Río Magdalena 2 entre montañas de Antioquia",
+    caption: "La vía 4G que conecta el Magdalena Medio con el norte del país. Aquí empezó mi camino en El Cóndor: control de producción, insumos, maquinaria y personal.",
+  },
+  {
+    ...m2,
+    src: "/media/obras/magdalena2-talud.webp",
+    alt: "Talud estabilizado con anclajes y placas de concreto junto a la Autopista Río Magdalena 2",
+    caption: "Taludes estabilizados con anclajes: cada placa es un dato de avance, insumo y horas máquina que hay que medir y reportar.",
+  },
+  {
+    ...m2,
+    src: "/media/obras/magdalena2-camara.webp",
+    alt: "Cámara de monitoreo instalada en la Autopista Río Magdalena 2",
+    caption: "La tecnología también es parte de la vía: sistemas de monitoreo que convierten la operación en información.",
+  },
+];
 
 /** Secuencia de la galería de obras (estilo reportaje). */
 export const obrasGallery = ["crew", "blueprint", "site", "road", "engineer"] as const;
