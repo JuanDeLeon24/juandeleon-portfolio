@@ -1,12 +1,13 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { condor, hilo, jornadasCase } from "@/content/profile";
+import { casos, condor, hilo, type CaseStudyData } from "@/content/profile";
 import { Reveal } from "../ui/Reveal";
 import { SectionHeading } from "../ui/SectionHeading";
 import { Counter } from "../ui/Counter";
 import { JornadaCalculator } from "../ui/JornadaCalculator";
 import { ObrasMap } from "../ui/ObrasMap";
+import { HerramientasDev } from "../ui/HerramientasDev";
 
 export function Condor() {
   return (
@@ -84,7 +85,7 @@ export function Condor() {
         </div>
       </Reveal>
 
-      <CaseStudy />
+      <Casos />
 
       {/* Pieza interactiva */}
       <Reveal className="wrap mt-32 md:mt-44" id="calculadora">
@@ -127,26 +128,56 @@ function Marquee({ items }: { items: string[] }) {
   );
 }
 
-function CaseStudy() {
+function Casos() {
+  const [idx, setIdx] = useState(0);
+  const { caso, dev } = casos[idx];
+  return (
+    <div className="mt-32 md:mt-44">
+      <div className="wrap mb-8">
+        <div role="tablist" aria-label="Casos de estudio" className="inline-flex flex-wrap gap-1 rounded-full bg-surface-2 p-1">
+          {casos.map((c, i) => (
+            <button
+              key={c.caso.id}
+              type="button"
+              role="tab"
+              aria-selected={i === idx}
+              onClick={() => setIdx(i)}
+              className={`relative rounded-full px-5 py-2.5 text-[15px] font-semibold transition-colors ${i === idx ? "text-black" : "text-ink/80 hover:text-ink"}`}
+            >
+              {i === idx && <motion.span layoutId="caso-tab" className="absolute inset-0 rounded-full bg-hivis" transition={{ type: "spring", stiffness: 400, damping: 32 }} />}
+              <span className="relative">{c.caso.tab}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+      <motion.div key={caso.id} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}>
+        <CaseStudy caso={caso} />
+        <HerramientasDev key={caso.id} dev={dev} />
+      </motion.div>
+    </div>
+  );
+}
+
+function CaseStudy({ caso: jornadasCase }: { caso: CaseStudyData }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 60%", "end 70%"] });
   const fill = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <div ref={ref} className="relative mt-32 bg-surface py-28 md:mt-44 md:py-40">
+    <div ref={ref} className="relative bg-surface py-28 md:py-40">
       <div className="wrap grid gap-14 lg:grid-cols-12">
-        <Reveal className="lg:col-span-5">
+        <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-28">
-            <p data-reveal className="text-sm text-signal">
-              Caso de estudio · sistema desarrollado
+            <p className="text-sm text-signal">
+              Caso de estudio · solución desarrollada
             </p>
-            <h3 data-reveal className="display mt-4 text-[clamp(2.2rem,4.6vw,4.4rem)] font-extrabold">
+            <h3 className="display mt-4 text-[clamp(2.2rem,4.6vw,4.4rem)] font-extrabold">
               {jornadasCase.name}
             </h3>
-            <p data-reveal className="mt-6 text-lg leading-relaxed text-ink/85">
+            <p className="mt-6 text-lg leading-relaxed text-ink/85">
               {jornadasCase.pitch}
             </p>
-            <dl data-reveal className="mt-10 grid grid-cols-2 gap-6">
+            <dl className="mt-10 grid grid-cols-2 gap-6">
               {jornadasCase.metrics.map((m) => (
                 <div key={m.label}>
                   <dd className="display text-5xl font-extrabold text-hivis md:text-6xl">
@@ -157,7 +188,7 @@ function CaseStudy() {
               ))}
             </dl>
           </div>
-        </Reveal>
+        </div>
         <div className="relative lg:col-span-6 lg:col-start-7">
           <div className="absolute left-[19px] top-2 h-full w-0.5 bg-surface-3" aria-hidden="true">
             <motion.div style={{ scaleY: fill }} className="h-full w-full origin-top bg-signal" />

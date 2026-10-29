@@ -308,26 +308,212 @@ export const condor = {
   ],
 };
 
-/** Caso de estudio principal: cifras tomadas del funcionamiento real de la herramienta. */
-export const jornadasCase = {
-  name: "Aprobador de jornadas – El Cóndor",
+/**
+ * Caso de estudio principal: Herramientas El Cóndor (aprobador de jornadas y
+ * auditor de equipo pesado unificados). Cifras tomadas del desarrollo real.
+ */
+export type CaseStudyData = {
+  id: string;
+  tab: string;
+  name: string;
+  pitch: string;
+  steps: { title: string; text: string }[];
+  metrics: { value: number; prefix?: string; suffix?: string; label: string }[];
+};
+
+export const jornadasCase: CaseStudyData = {
+  id: "herramientas",
+  tab: "Herramientas El Cóndor",
+  name: "Herramientas El Cóndor",
   pitch:
-    "Una persona aprobaba a mano, una por una, las jornadas de más de cien trabajadores de túnel. Construí una herramienta que hace el análisis, propone, y deja a la persona solo la decisión.",
+    "Suite que se ejecuta dentro de Google Chrome sobre las plataformas web corporativas de personal y de equipo pesado: lectura directa del servidor, motor de reglas, hoja de revisión editable y ejecución verificada paso a paso. Evolucionó por versiones de la 1.x a la 2.0, hasta unificar el aprobador de jornadas y el auditor de equipos en una sola herramienta.",
   steps: [
-    { title: "Elegir jefe", text: "Filtra el personal del jefe inmediato en la plataforma de nómina." },
-    { title: "Cruzar programación", text: "Lee el Excel de programación de túneles: turnos D, N, D8H, N8H y novedades." },
-    { title: "Analizar marcaciones", text: "Compara lo marcado con el turno, redondea la salida y calcula horas y extras." },
-    { title: "Revisión humana", text: "Genera un Excel protegido: la persona corrige celdas azules y escribe OK." },
-    { title: "Aprobar y aprender", text: "Aprueba solo las filas con OK, salta inconsistencias y guarda memoria por persona." },
-    { title: "Destinos", text: "Arma el archivo de destinos por centro de costo listo para revisión." },
+    { title: "Levantamiento de requisitos", text: "Modelado de las reglas de cálculo: turnos, redondeos, novedades, programación, horómetros e imputación a centros de costo." },
+    { title: "Ingeniería inversa de la plataforma", text: "Análisis de formularios, grillas, ventanas modales y respuestas del servidor de las aplicaciones ASP.NET, siempre en modo de solo lectura." },
+    { title: "Desarrollo modular", text: "Módulos independientes en JavaScript: lanzador, lectura directa, motor de reglas, interfaz de revisión, ejecutor y librería de Excel." },
+    { title: "Pruebas en entornos simulados", text: "Réplicas de la plataforma y pruebas automatizadas con Playwright antes de cada entrega, sin tocar datos reales." },
+    { title: "Despliegue y auditoría continua", text: "Uso en operación real, registro de fallas y ciclos de auditoría y corrección: congelamiento de la interfaz, recargas, desconexión de la hoja, marcaciones perdidas y edición en bloque." },
+    { title: "Unificación", text: "Integración del aprobador de jornadas y el auditor de equipo pesado en un único punto de entrada." },
   ],
   metrics: [
+    { value: 3800, prefix: "~", label: "líneas de código JavaScript" },
+    { value: 0, label: "dependencias externas" },
     { value: 98, suffix: "%", label: "menos datos por consulta (1,7 MB → 35 KB)" },
-    { value: 160, prefix: "~", label: "personas analizadas por jefe en un lote" },
-    { value: 31, label: "días por análisis en una sola corrida" },
-    { value: 15, label: "tipos de novedad mapeados a la plataforma" },
+    { value: 6000, label: "celdas en las pruebas de rendimiento" },
   ],
 };
+
+/** Detalle técnico del desarrollo de Herramientas El Cóndor. */
+export type DevDetail = {
+  metodo: string;
+  entorno: { title: string; text: string }[];
+  lenguajes: { name: string; text: string }[];
+  arquitectura: {
+    lanzador: string;
+    enlace: string;
+    grupos: { title: string; sub: string; modulos: { id: string; text: string }[] }[];
+    base: string;
+    inicial: string;
+  };
+  componentes: { title: string; text: string }[];
+  principios: string[];
+};
+
+export const herramientasDev: DevDetail = {
+  metodo:
+    "Por las restricciones de los equipos corporativos, el desarrollo se hizo en paralelo y de forma remota desde mi ordenador personal: allí programé, desplegué y revisé cada versión en un espacio de trabajo Linux en la nube, con asistencia de inteligencia artificial para generar código, montar entornos simulados y auditar cada entrega antes de llevarla al equipo de trabajo.",
+  entorno: [
+    { title: "Desarrollo", text: "Espacio de trabajo Linux en la nube, operado de forma remota desde el ordenador personal. Node.js para validar el código y Python para construir los entregables." },
+    { title: "Pruebas automatizadas", text: "Playwright con Chromium sobre réplicas de la plataforma: grilla, ventana de la jornada, postbacks y confirmación de jornadas de más de 12 h." },
+    { title: "Rendimiento", text: "Pruebas de respuesta con 6.000 celdas, recarga de la página y extensión instalada." },
+    { title: "Verificación", text: "Consultas de solo lectura sobre la sesión real del navegador, sin ejecutar aprobaciones." },
+    { title: "Empaquetado", text: "Script en Python que une los módulos y genera tres entregables: marcador instalable, extensión de Chrome y código en texto plano." },
+  ],
+  lenguajes: [
+    { name: "JavaScript", text: "Puro, sin librerías externas, ejecutado dentro de Google Chrome." },
+    { name: "HTML y CSS", text: "Panel de control, hoja de revisión y ventana flotante del auditor." },
+    { name: "Python", text: "Solo para pruebas y construcción de entregables; no forma parte de la herramienta." },
+  ],
+  arquitectura: {
+    lanzador: "Herramientas El Cóndor · marcador o extensión de Chrome",
+    enlace: "detecta en qué plataforma se ejecuta",
+    grupos: [
+      {
+        title: "Módulo de personal",
+        sub: "Plataforma web de nómina",
+        modulos: [
+          { id: "ui.js", text: "Panel de control: aprobación, destinos, horas extras y ajustes." },
+          { id: "hoja.js", text: "Hoja de revisión en pestaña independiente: filtros, deshacer/rehacer y pegado en múltiples celdas." },
+          { id: "core.js", text: "Lógica central: lectura directa, análisis, reglas de turnos, aprobación, destinos y memoria de aprendizaje." },
+          { id: "xlsxmini.js", text: "Excel: lectura y escritura de archivos .xlsx, programada desde cero." },
+        ],
+      },
+      {
+        title: "Módulo de equipo pesado",
+        sub: "Plataforma web de maquinaria",
+        modulos: [{ id: "auditor.js", text: "Auditor: extracción, auditoría, corrección y creación de reportes en una ventana flotante." }],
+      },
+    ],
+    base: "Plataformas corporativas ASP.NET · sesión y permisos del usuario",
+    inicial: "core.js",
+  },
+  componentes: [
+    { title: "Lanzador", text: "Punto de entrada único que, según la URL, carga el módulo de personal o el de equipo pesado." },
+    { title: "Lectura directa", text: "Se comunica con el servidor como la propia página, con una copia independiente del formulario, e interpreta la respuesta sin renderizarla: rápida y sin congelar la interfaz." },
+    { title: "Motor de reglas", text: "Cruza marcaciones, programación e historial; aplica turnos, redondeos, novedades y horas extras." },
+    { title: "Interfaz de revisión", text: "Hoja editable en pestaña aparte con control de cambios y guardado automático en el navegador." },
+    { title: "Ejecutor con verificación", text: "Aprueba o imputa paso a paso, comprueba cada resultado y deja un registro de auditoría." },
+    { title: "Excel nativo", text: "Genera y lee .xlsx con fórmulas, formatos, listas desplegables y validaciones, sin programas externos." },
+    { title: "Memoria local", text: "Almacena en el navegador horarios, notas y destinos aprobados para mejorar las sugerencias." },
+    { title: "Reconexión", text: "Si la pestaña de la plataforma se recarga, la hoja reinyecta la herramienta y recupera datos y filtros." },
+  ],
+  principios: [
+    "Sin servidores propios, licencias ni instalación de programas.",
+    "Opera con la sesión del usuario; todo el procesamiento queda en el navegador.",
+    "Validación humana explícita (marca OK) antes de cada acción.",
+    "Verificación antes y después de cada operación, con registro trazable.",
+  ],
+};
+
+/** Caso de estudio: aplicación móvil Control Concreto (Android e iPhone). */
+export const concretoCase: CaseStudyData = {
+  id: "concreto",
+  tab: "Control Concreto · Android",
+  name: "Control Concreto",
+  pitch:
+    "Aplicación móvil nativa para el control de despachos de concreto en los vaciados del revestimiento del túnel. Reemplaza la planilla física por un registro digital por jornada y mixer, con fotografía de remisiones, informe PDF con firmas y exportación a Excel. Funciona 100 % sin conexión y evolucionó de la versión 1.0 a la 1.4, con una versión para iPhone compatible.",
+  steps: [
+    { title: "Levantamiento de requisitos", text: "Digitalización del formato de control de llegadas de concreto: jornada, frente, tramo, abscisa, mixer, remisión, horas y elementos vaciados." },
+    { title: "Arquitectura offline-first", text: "Persistencia local en SQLite con guardado inmediato y aplicación sin permisos de red: opera en el frente subterráneo sin cobertura." },
+    { title: "Desarrollo nativo", text: "Kotlin con Jetpack Compose y Material 3, organizado en 17 módulos: interfaz, formularios, cámara, documentos, datos y catálogo." },
+    { title: "Integración continua", text: "Compilación del APK firmado en la nube con GitHub Actions; firma fija para instalar actualizaciones sin pérdida de datos." },
+    { title: "Despliegue iterativo", text: "Versiones en operación real: catálogo de frentes y tramos desde Excel, fotos de remisiones con corrección de perspectiva, campos adicionales y exportación a Excel." },
+    { title: "Versión multiplataforma", text: "Versión para iPhone con Capacitor, compilada en Codemagic y distribuida por TestFlight, con intercambio de jornadas entre Android e iPhone." },
+  ],
+  metrics: [
+    { value: 4570, prefix: "~", label: "líneas de código Kotlin" },
+    { value: 17, label: "módulos de la aplicación" },
+    { value: 0, label: "permisos de red: 100 % sin conexión" },
+    { value: 2, label: "plataformas: Android e iPhone" },
+  ],
+};
+
+export const concretoDev: DevDetail = {
+  metodo:
+    "Los equipos corporativos no permiten instalar entornos de desarrollo móvil, así que el trabajo se hizo en paralelo y de forma remota desde mi ordenador personal: código en un espacio de trabajo Linux en la nube, compilación automatizada en GitHub Actions y Codemagic, y asistencia de inteligencia artificial para auditar el código y validar cada versión antes de instalarla en los teléfonos de obra.",
+  entorno: [
+    { title: "Desarrollo", text: "Espacio de trabajo Linux en la nube operado de forma remota. Kotlin sobre JDK 17 y Gradle 8.7; SDK de Android 34, compatible desde Android 8.0." },
+    { title: "Integración continua", text: "GitHub Actions: verificación de la estructura del proyecto, compilación de la versión de producción y publicación del APK como artefacto descargable." },
+    { title: "Firma y actualización", text: "Firma de publicación fija y migraciones aditivas de la base de datos: cada versión se instala sobre la anterior conservando jornadas, mixers y fotos." },
+    { title: "iPhone", text: "Versión web empaquetada como app nativa con Capacitor, compilada en Codemagic y distribuida por TestFlight." },
+    { title: "Validación", text: "Pruebas en dispositivos Android en frente de obra: captura, generación de PDF y Excel e intercambio de jornadas entre teléfonos." },
+  ],
+  lenguajes: [
+    { name: "Kotlin", text: "Aplicación Android nativa con Jetpack Compose y Material 3." },
+    { name: "JavaScript, HTML y CSS", text: "Versión para iPhone empaquetada con Capacitor." },
+    { name: "YAML", text: "Definición de los pipelines de compilación en GitHub Actions y Codemagic." },
+  ],
+  arquitectura: {
+    lanzador: "Control Concreto · Android (Kotlin + Jetpack Compose) · iPhone (Capacitor)",
+    enlace: "capas de la aplicación",
+    grupos: [
+      {
+        title: "Interfaz",
+        sub: "Jetpack Compose · Material 3",
+        modulos: [
+          { id: "MainActivity.kt", text: "Punto de entrada: navegación entre jornadas, mixers, catálogo y configuración." },
+          { id: "Pantallas.kt", text: "Pantallas: historial agrupado por día de vaciado, jornada y resumen." },
+          { id: "Formularios.kt", text: "Formularios: datos de la jornada y de cada mixer, con botón de hora actual." },
+          { id: "Admin.kt", text: "Administración: acceso con usuario y contraseña a funciones avanzadas." },
+        ],
+      },
+      {
+        title: "Captura y documentos",
+        sub: "Cámara, PDF y Excel nativos",
+        modulos: [
+          { id: "Camara.kt", text: "Cámara: ajuste de las cuatro esquinas con lupa sobre la remisión." },
+          { id: "Fotos.kt", text: "Fotos: corrección de perspectiva, orientación EXIF y filtro de escaneo." },
+          { id: "Pdf.kt", text: "PDF: planilla carta horizontal con encabezado, tabla, totales, firmas y anexo fotográfico." },
+          { id: "Excel.kt", text: "Excel: generación de .xlsx con ZIP y XML, sin librerías externas." },
+        ],
+      },
+      {
+        title: "Datos",
+        sub: "Persistencia local",
+        modulos: [
+          { id: "Db.kt", text: "Base de datos: SQLite con guardado inmediato de cada cambio." },
+          { id: "Catalogo.kt", text: "Catálogo: carga de frentes, tramos, abscisas y elementos desde CSV o Excel." },
+          { id: "Intercambio.kt", text: "Intercambio: jornada completa con fotos en un .zip, entre Android e iPhone." },
+          { id: "Config.kt", text: "Configuración: campos adicionales por mixer y parámetros del informe." },
+        ],
+      },
+    ],
+    base: "Almacenamiento local del dispositivo · SQLite · sin conexión a red",
+    inicial: "Fotos.kt",
+  },
+  componentes: [
+    { title: "Base de datos local", text: "SQLite en el teléfono con guardado inmediato; historial agrupado por día de vaciado." },
+    { title: "Captura de remisiones", text: "Fotografía con ajuste manual de esquinas, corrección de perspectiva y filtro de escaneo." },
+    { title: "Informe PDF nativo", text: "Generado con la API PdfDocument de Android: tabla, totales, resumen, firmas y anexo fotográfico." },
+    { title: "Excel nativo", text: "Escritura de .xlsx con ZIP y XML y lectura de plantillas con XmlPullParser, sin librerías de terceros." },
+    { title: "Catálogo de obra", text: "Frentes, tramos, abscisas, módulos y elementos vaciados cargados desde una plantilla." },
+    { title: "Intercambio entre dispositivos", text: "Paquete .zip con datos y fotos de una jornada, compatible entre Android e iPhone." },
+    { title: "Campos configurables", text: "Aditivos, fibras, dosis y otros datos por mixer, con identificadores comunes entre plataformas." },
+    { title: "Copia de seguridad", text: "Respaldo compatible entre versiones y entre teléfonos." },
+  ],
+  principios: [
+    "100 % sin conexión: la aplicación no solicita permiso de red.",
+    "Los datos y las fotos permanecen en el dispositivo.",
+    "Actualizaciones sin pérdida de datos: firma fija y migraciones aditivas.",
+    "Documentos generados sin librerías de terceros, solo con AndroidX y Jetpack Compose.",
+  ],
+};
+
+/** Casos de estudio mostrados en pestañas. */
+export const casos = [
+  { caso: jornadasCase, dev: herramientasDev },
+  { caso: concretoCase, dev: concretoDev },
+];
 
 export type Project = {
   id: string;
@@ -345,29 +531,17 @@ export const projects: Project[] = [
   {
     id: "automatizacion",
     category: "Automatización de procesos",
-    title: "Aprobador de jornadas",
-    stack: ["JavaScript", "Chrome Extensions", "Excel", "VBA"],
-    summary: "Extensión de Chrome en producción que analiza, propone y aprueba las jornadas del personal de túneles.",
+    title: "Herramientas El Cóndor",
+    stack: ["JavaScript", "Chrome Extensions", "Playwright", "Python"],
+    summary: "Suite en JavaScript puro que unifica la aprobación de jornadas y la auditoría de equipo pesado sobre plataformas ASP.NET.",
     details: [
-      "Cruza marcaciones con la programación de túneles y festivos.",
-      "Excel de revisión protegido: solo se aprueba lo marcado con OK.",
-      "Memoria de aprendizaje por persona: notas, horarios y destinos.",
-      "Consultas por cédula: de ~1,7 MB a ~35 KB por postback.",
+      "Lectura directa del servidor sin renderizar: interfaz fluida con miles de registros.",
+      "Motor de reglas de turnos, redondeos, novedades y horas extras.",
+      "Hoja de revisión con deshacer/rehacer, filtros y reconexión automática.",
+      "Librería propia de Excel (.xlsx) con fórmulas, listas y validaciones.",
+      "Pruebas automatizadas con Playwright sobre réplicas de la plataforma.",
     ],
     image: "excel",
-  },
-  {
-    id: "maquinaria",
-    category: "Automatización de procesos",
-    title: "Auditor de equipo pesado",
-    stack: ["Excel", "VBA", "Automatización"],
-    summary: "Extrae las horas por equipo de la plataforma, las audita contra los horómetros en Excel y carga las correcciones pendientes.",
-    details: [
-      "Conciliación de horas y horómetros por equipo.",
-      "Detección de diferencias antes del cierre.",
-      "Carga de correcciones pendientes en la plataforma.",
-    ],
-    image: "site",
   },
   {
     id: "concreto",
