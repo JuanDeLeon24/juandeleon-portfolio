@@ -27,7 +27,7 @@ export function Hero() {
   const root = useRef<HTMLElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const rec = videos.recorrido;
-  const poster = media[rec.poster];
+  const posterSrc = rec.posterSrc ?? media[rec.poster].src;
 
   useGSAP(
     () => {
@@ -72,7 +72,7 @@ export function Hero() {
 
   return (
     <section id="inicio" ref={root} className="relative">
-      <div data-stage className="relative flex h-[100svh] items-end overflow-hidden pb-14 pt-28 md:pb-20">
+      <div data-stage className="relative flex h-[100svh] items-end overflow-hidden pb-[min(5rem,6vh)] pt-24">
       <div data-scene className="absolute inset-0 will-change-transform">
         <TunnelScene className="h-full w-full" />
         {/* viñeta cinematográfica para legibilidad del texto */}
@@ -86,12 +86,13 @@ export function Hero() {
           <video
             ref={video}
             className="h-full w-full object-cover"
-            poster={asset(poster.src)}
+            poster={asset(posterSrc)}
             muted
             loop
             playsInline
-            preload="none"
+            preload="metadata"
           >
+            <source src={asset(rec.webm)} type="video/webm" />
             <source src={asset(rec.src)} type="video/mp4" />
           </video>
         </div>
@@ -129,7 +130,7 @@ export function Hero() {
               <span className="text-ink/60">Ingeniero Electrónico</span>
             </span>
           </motion.div>
-          <h1 className="display max-w-[22ch] text-[clamp(2.3rem,4.9vw,5.4rem)] font-extrabold">
+          <h1 className="display max-w-[22ch] text-[clamp(1.5rem,min(4.9vw,6.3vh),5.4rem)] font-extrabold">
             {words.map((w, i) => (
               <span key={i} className="inline-block overflow-hidden pb-[0.08em] align-bottom">
                 <motion.span
@@ -147,7 +148,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease, delay: 0.9 }}
-            className="mt-7 max-w-[52ch] text-lg leading-relaxed text-ink/85 md:text-xl"
+            className="mt-[min(1.75rem,3vh)] max-w-[52ch] text-base leading-relaxed text-ink/85 md:text-[clamp(1rem,2.4vh,1.25rem)]"
           >
             {hero.subtitle}
           </motion.p>
@@ -155,7 +156,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease, delay: 1.05 }}
-            className="mt-10 flex flex-wrap gap-3"
+            className="mt-[min(2.5rem,4.5vh)] flex flex-wrap gap-3"
           >
             <HeroButton primary onClick={() => scrollToId("trayectoria")}>Ver experiencia</HeroButton>
             <HeroButton onClick={() => scrollToId("proyectos")}>Explorar proyectos</HeroButton>
@@ -168,7 +169,7 @@ export function Hero() {
           transition={{ delay: 1.4, duration: 1 }}
           className="hidden self-end text-right text-sm text-ink/70 md:col-span-2 md:col-start-11 md:block lg:col-span-3 lg:col-start-10"
         >
-          <span className="mb-4 ml-auto block h-20 w-20 overflow-hidden rounded-full ring-2 ring-hivis ring-offset-4 ring-offset-ground">
+          <span className="mb-4 ml-auto block h-[min(5rem,10vh)] w-[min(5rem,10vh)] overflow-hidden rounded-full ring-2 ring-hivis ring-offset-4 ring-offset-ground">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={asset("/media/juan-avatar.webp")} alt="" className="h-full w-full object-cover" width={80} height={80} />
           </span>
@@ -191,8 +192,8 @@ function HeroButton({ children, onClick, primary }: { children: React.ReactNode;
       whileTap={{ scale: 0.96 }}
       className={
         primary
-          ? "rounded-full bg-hivis px-7 py-3.5 text-base font-semibold text-black"
-          : "glass rounded-full px-7 py-3.5 text-base font-medium text-ink transition-colors hover:bg-white/10"
+          ? "rounded-full bg-hivis px-7 py-[min(0.875rem,1.7vh)] text-base font-semibold text-black"
+          : "glass rounded-full px-7 py-[min(0.875rem,1.7vh)] text-base font-medium text-ink transition-colors hover:bg-white/10"
       }
     >
       {children}

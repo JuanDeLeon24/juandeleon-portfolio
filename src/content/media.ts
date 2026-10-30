@@ -347,7 +347,9 @@ export const videos = {
   /** Recorrido por el revestimiento: se usa en la transición del hero. */
   recorrido: {
     src: "/media/video/tunel0-revestimiento.mp4",
+    webm: "/media/video/tunel0-revestimiento.webm",
     poster: "toyoRevestimientoMixer",
+    posterSrc: "/media/video/tunel0-revestimiento-poster.webp",
     title: "Túnel 0 · revestimiento en ejecución",
     caption:
       "Carro de revestimiento en proceso de vaciado, con hidratación simultánea de los módulos contiguos ya vaciados.",
