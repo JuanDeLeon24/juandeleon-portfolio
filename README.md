@@ -46,6 +46,27 @@ Todo se edita en `src/content/profile.ts`. Los campos marcados con `EDITAR` espe
 | Fotos de obra | Cópialas a `public/media/obras/` y regístralas en `fotosObra` (`media.ts`) con el nombre de la obra: salen en el mapa y en la galería |
 | LinkedIn | Cambia `contact.linkedin` por la URL de tu perfil |
 
+## Videos de obra
+
+El sitio ya está preparado para dos videos. Solo hay que subirlos con estos nombres exactos a la carpeta `public/media/video/`:
+
+| Archivo | Dónde aparece |
+| --- | --- |
+| `tunel0-revestimiento.mp4` | Transición del inicio: el túnel 3D se convierte en el túnel real |
+| `tunel0-portal-entrada.mp4` | Franja del portal de entrada, después de "Sobre mí" |
+
+Mientras no existan, se muestran las fotos de esas mismas escenas.
+
+**Preparar cada video** (recomendado: H.264, 1280 o 1920 px de ancho, sin audio, menos de 25 MB):
+
+```bash
+ffmpeg -i original.mp4 -an -vf "scale=1920:-2" -c:v libx264 -preset slow -crf 26 -movflags +faststart tunel0-revestimiento.mp4
+```
+
+Sin ffmpeg: HandBrake → preset "Fast 1080p30", pestaña Audio sin pistas, casilla "Web Optimized".
+
+**Subirlos desde GitHub:** abre `public/media/video/` en el repositorio → Add file → Upload files → arrastra los dos `.mp4` → Commit changes. La página se publica sola en unos minutos. GitHub no acepta archivos de más de 100 MB.
+
 ## Imágenes y derechos
 
 Solo se usan imágenes propias (capturas de Lovely) o con licencia libre (Unsplash, enlazadas desde su CDN). No se copian fotos de El Cóndor ni de terceros con derechos reservados. Si una imagen remota no carga, el sitio muestra en su lugar una sección de túnel dibujada.

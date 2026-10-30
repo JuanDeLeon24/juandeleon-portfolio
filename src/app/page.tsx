@@ -16,7 +16,7 @@ import { Footer } from "@/components/sections/Footer";
 import { CircuitConnector } from "@/components/ui/CircuitConnector";
 import { Background } from "@/components/three/Background";
 import { PhotoBand } from "@/components/ui/PhotoBand";
-import { media } from "@/content/media";
+import { media, videos } from "@/content/media";
 
 export default function Home() {
   return (
@@ -26,7 +26,7 @@ export default function Home() {
       <main id="contenido">
         <Hero />
         <About />
-        <PhotoBand items={[media.toyoPortalFormaleta]} chainage="K0+000 · Portal" label="Portal del Túnel del Toyo" />
+        <PhotoBand items={[media.toyoPortalFormaleta]} chainage="K0+000 · Portal de entrada" label="Portal de entrada del Túnel 0" video={videos.portal} />
         <Timeline />
         <CircuitConnector label="K3+400" />
         <Condor />
@@ -41,7 +41,7 @@ export default function Home() {
         <Impact />
         <Testimonials />
         <Certifications />
-        <PhotoBand items={[media.toyoPortalEmboquille]} chainage="K9+730 · Emboquille" label="Emboquille del Túnel del Toyo" />
+        <PhotoBand items={[media.toyoPortalEmboquille]} chainage="K9+730 · Emboquille" label="Emboquille del Túnel del Toyo · portal" />
         <CircuitConnector label="K9+730" />
         <Contact />
       </main>

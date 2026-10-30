@@ -1,0 +1,5 @@
+Coloca aquí los videos con estos nombres exactos:
+- tunel0-revestimiento.mp4
+- tunel0-portal-entrada.mp4
+
+Ver la sección "Videos de obra" del README.

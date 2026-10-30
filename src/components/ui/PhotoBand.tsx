@@ -1,14 +1,17 @@
 "use client";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import type { MediaItem } from "@/content/media";
 import { SmartImage } from "./SmartImage";
+import { asset } from "@/lib/asset";
 
 type Props = {
   items: MediaItem[];
   chainage: string;
   label: string;
   align?: "left" | "right";
+  /** Video opcional; la foto principal sirve de póster mientras carga o si no existe. */
+  video?: { src: string; caption: string };
 };
 
 /**
@@ -17,8 +20,18 @@ type Props = {
  * parallax; lleva esquinas de plano y una ficha técnica con la abscisa.
  * Con dos fotos se compone en dos planos desplazados.
  */
-export function PhotoBand({ items, chainage, label, align = "left" }: Props) {
+export function PhotoBand({ items, chainage, label, align = "left", video }: Props) {
   const ref = useRef<HTMLDivElement>(null);
+  const vref = useRef<HTMLVideoElement>(null);
+
+  // El video solo se reproduce mientras la franja está en pantalla.
+  useEffect(() => {
+    const v = vref.current;
+    if (!v || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const io = new IntersectionObserver(([e]) => (e.isIntersecting ? v.play().catch(() => {}) : v.pause()), { threshold: 0.25 });
+    io.observe(v);
+    return () => io.disconnect();
+  }, []);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.18, 1.05, 1.12]);
@@ -33,7 +46,13 @@ export function PhotoBand({ items, chainage, label, align = "left" }: Props) {
         <div className={`relative ${second ? "md:pr-[22%]" : ""} ${second && align === "right" ? "md:pl-[22%] md:pr-0" : ""}`}>
           <motion.div style={{ clipPath: clip }} className="relative aspect-[4/5] overflow-hidden rounded-[28px] sm:aspect-[16/10] md:aspect-[21/9]">
             <motion.div style={{ y, scale }} className="absolute inset-[-12%]">
-              <SmartImage item={main} sizes="100vw" />
+              {video ? (
+                <video ref={vref} className="h-full w-full object-cover" poster={asset(main.src)} muted loop playsInline preload="none" aria-label={main.alt}>
+                  <source src={asset(video.src)} type="video/mp4" />
+                </video>
+              ) : (
+                <SmartImage item={main} sizes="100vw" />
+              )}
             </motion.div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/20" />
             {/* esquinas de plano */}
@@ -44,7 +63,7 @@ export function PhotoBand({ items, chainage, label, align = "left" }: Props) {
             </svg>
             <figcaption className={`absolute bottom-5 max-w-[34rem] px-6 md:bottom-8 md:px-10 ${align === "right" ? "right-0 text-right" : "left-0"}`}>
               <span className="tnum inline-block rounded-full bg-hivis px-3 py-1 text-xs font-semibold text-black md:text-sm">{chainage}</span>
-              <span className="mt-3 block text-[15px] leading-snug text-ink md:text-lg">{main.caption}</span>
+              <span className="mt-3 block text-[15px] leading-snug text-ink md:text-lg">{video?.caption ?? main.caption}</span>
               <span className="mt-1 block text-xs text-ink/60">Foto: {main.credit}</span>
             </figcaption>
           </motion.div>

@@ -339,6 +339,29 @@ export const fotosObra: ObraPhoto[] = [
   },
 ];
 
+/**
+ * Videos de obra. Sube los archivos a /public/media/video/ con estos nombres
+ * exactos (ver README). Mientras no existan, se muestra la foto `poster`.
+ */
+export const videos = {
+  /** Recorrido por el revestimiento: se usa en la transición del hero. */
+  recorrido: {
+    src: "/media/video/tunel0-revestimiento.mp4",
+    poster: "toyoRevestimientoMixer",
+    title: "Túnel 0 · revestimiento en ejecución",
+    caption:
+      "Carro de revestimiento en proceso de vaciado, con hidratación simultánea de los módulos contiguos ya vaciados.",
+  },
+  /** Portal de entrada: franja después de Sobre mí. */
+  portal: {
+    src: "/media/video/tunel0-portal-entrada.mp4",
+    poster: "toyoPortalFormaleta",
+    title: "Túnel 0 · portal de entrada",
+    caption:
+      "Acceso por el portal de entrada: carro de emboquille para la ejecución del brocal con estructura en pico de flauta y cuadrilla de topografía en el frente.",
+  },
+} as const;
+
 /** Secuencia de la galería de obras (estilo reportaje). */
 export const obrasGallery = ["crew", "blueprint", "site", "road", "engineer"] as const;
 
