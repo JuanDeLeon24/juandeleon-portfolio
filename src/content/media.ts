@@ -128,6 +128,46 @@ export const media: Record<string, MediaItem> = {
     license: "Proyecto propio",
     sourceUrl: "https://juandeleon24.github.io/lovely-web/",
   },
+  toyoPortalFormaleta: {
+    src: "/media/obras/toyo-portal-formaleta.webp",
+    alt: "Formaleta metálica de revestimiento en el portal del Túnel del Toyo, entre taludes con anclajes activos",
+    credit: "Archivo fotográfico de Construcciones El Cóndor",
+    license: "Derechos reservados de sus autores",
+    sourceUrl: "https://elcondor.com",
+    caption: "Emboquille del portal: formaleta metálica para el revestimiento en concreto y taludes con anclajes activos.",
+  },
+  toyoPortalEmboquille: {
+    src: "/media/obras/toyo-portal-emboquille.webp",
+    alt: "Vista frontal del portal del Túnel del Toyo con la formaleta de revestimiento instalada",
+    credit: "Archivo fotográfico de Construcciones El Cóndor",
+    license: "Derechos reservados de sus autores",
+    sourceUrl: "https://elcondor.com",
+    caption: "Portal en ejecución: cimbra de revestimiento, vigas de cimentación y estabilización del frente con anclajes.",
+  },
+  toyoRevestimientoMixer: {
+    src: "/media/obras/toyo-revestimiento-mixer.webp",
+    alt: "Mixer de concreto dentro del túnel revestido frente al carro de encofrado",
+    credit: "Archivo fotográfico de Construcciones El Cóndor",
+    license: "Derechos reservados de sus autores",
+    sourceUrl: "https://elcondor.com",
+    caption: "Revestimiento definitivo: suministro de concreto al carro de encofrado por módulos.",
+  },
+  toyoCarroEncofrado: {
+    src: "/media/obras/toyo-carro-encofrado.webp",
+    alt: "Carro de encofrado hidráulico para el revestimiento del Túnel del Toyo",
+    credit: "Archivo fotográfico de Construcciones El Cóndor",
+    license: "Derechos reservados de sus autores",
+    sourceUrl: "https://elcondor.com",
+    caption: "Carro de encofrado hidráulico y curado del revestimiento recién desencofrado.",
+  },
+  toyoImpermeabilizacion: {
+    src: "/media/obras/toyo-impermeabilizacion.webp",
+    alt: "Pórtico de trabajo para la instalación de la membrana de impermeabilización en el Túnel del Toyo",
+    credit: "Archivo fotográfico de Construcciones El Cóndor",
+    license: "Derechos reservados de sus autores",
+    sourceUrl: "https://elcondor.com",
+    caption: "Pórtico de impermeabilización: instalación de geotextil y membrana sobre el concreto lanzado, previa al revestimiento.",
+  },
 };
 
 /**
